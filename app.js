@@ -77,7 +77,7 @@
         (s.logo ? '<img class="logo" src="' + esc(s.logo) + '" alt="' + esc(s.brand) + '">' : "") +
         "<h2" + (isLatin(s.title) ? ' dir="ltr" lang="en"' : "") + ">" + esc(s.title) + "</h2>" +
         '<p class="brand">' + esc(s.brand) + (s.note ? " · " + esc(s.note) : "") + "</p>" +
-        (n ? '<p class="meta">' + fa(n) + " " + esc(s.unit || "قطعه") + " · قیمت‌ها به میلیون تومان</p>" : "") +
+        (n ? '<p class="meta">' + fa(n) + " " + esc(s.unit || "قطعه") + "</p>" : "") +
       "</div>";
     var body = n
       ? '<div class="items ' + (s.layout || "grid") + '">' + s.items.map(card).join("") + "</div>"
