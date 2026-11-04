@@ -38,6 +38,13 @@
   }).join("") + '<li><a href="#about">نشانی</a></li>' +
     '<li><a href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" lang="en" dir="ltr">Instagram</a></li>';
 
+  $("quick").innerHTML = C.sections.map(function (s) {
+    var n = s.items.length;
+    return '<li><a href="#' + s.id + '"' + (n ? "" : ' class="soon-t"') + ">" +
+      "<b>" + esc(s.nav) + "</b>" +
+      "<span>" + (n ? fa(n) + " " + esc(s.unit || "قطعه") : "به‌زودی") + "</span></a></li>";
+  }).join("");
+
   function card(it) {
     var hasPrice = typeof it.price === "number";
     var price = hasPrice
@@ -86,7 +93,7 @@
       a.setAttribute("aria-current", on ? "true" : "false");
       if (on && a.scrollIntoView) {
         var ul = a.parentNode.parentNode, r = a.getBoundingClientRect(), u = ul.getBoundingClientRect();
-        if (r.left < u.left || r.right > u.right) ul.scrollBy({ left: r.left - u.left - 16, behavior: "smooth" });
+        if (r.left < u.left || r.right > u.right) ul.scrollLeft += r.left - u.left - 16; // instant: a second smooth scroll would cancel the page's own smooth scroll in Chrome
       }
     });
   }
