@@ -85,7 +85,7 @@ window.CATALOG = {
         { code: "D10", title: "HANGING MIRROR OBJECT",    specs: ["۹۰ × ۳۰", "استیل ضد زنگ"],                                         price: 60,  img: "img/added/d10.jpg", w: 667,  h: 1000 },
         { code: "D11", title: "CUBE TV CONSOLE",          specs: ["۲۱۳ × ۴۰ × ۳۵", "استیل ضد زنگ"],                                   price: 145, img: "img/added/d11.jpg", w: 1000, h: 750 },
         { code: "D12", title: "CURVED MIRROR",            specs: ["استیل ضد زنگ"],                                                   price: 98,  img: "img/added/d12.jpg", w: 750,  h: 1000 },
-        { code: "D13", title: "UFO",                      specs: ["استیل ضد زنگ"],                                                   price: 3.8, img: "img/added/d13.jpg", w: 666,  h: 1000 },
+        { code: "D13", title: "UFO",                      specs: ["استیل ضد زنگ"],                                                   price: 3.8, img: "img/added/d13.jpg", w: 1000, h: 1000 },
         { code: "D14", title: "MIRROR / MATTE PARTITION", specs: ["استیل ضد زنگ"],                                                   price: 355, img: "img/added/d14.jpg", w: 908,  h: 1000 },
         { code: "D15", title: "CONE SIDE",                specs: ["استیل ضد زنگ"],                                                   price: 95,  img: "img/added/d15.jpg", w: 800,  h: 1000 },
         { code: "D16", title: "CONE DINING",              specs: ["استیل ضد زنگ"],                                                   price: 190, img: "img/added/d16.jpg", w: 914,  h: 1000 },
