@@ -47,7 +47,17 @@
   .ig { margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; text-decoration: none; background: var(--navy); color: var(--cream); border-radius: 999px; padding: 10px 20px 10px 22px; font-weight: 700; font-size: 15px; line-height: 1.4; }
   .ig svg { flex: none; }
   .ig-h { direction: ltr; font-weight: 800; color: #f3b27a; }
-  .event { margin-top: 36px; padding-top: 22px; border-top: 2px solid var(--navy); }
+  .hero .wrap { display: grid; grid-template-columns: 1fr; grid-template-areas: "brand" "sp" "event"; }
+  .brandblock { grid-area: brand; }
+  .sp { grid-area: sp; margin-top: 32px; padding-top: 22px; border-top: 2px solid var(--navy); }
+  .sp img { display: block; width: 100%; max-width: 460px; height: auto; margin-top: 12px; }
+  .event { grid-area: event; margin-top: 6px; }
+  @media (min-width: 820px) {
+    .hero .wrap { grid-template-columns: 1fr 1fr; grid-template-areas: "brand sp" "event event"; column-gap: 40px; align-items: center; }
+    .sp { margin-top: 0; padding-top: 0; border-top: 0; justify-self: end; width: 100%; max-width: 512px; }
+    .sp img { max-width: 512px; margin-top: 10px; }
+    .event { margin-top: 32px; padding-top: 22px; border-top: 2px solid var(--navy); }
+  }
   .quick { margin-top: 24px; }
   .quick h2 { margin: 0 0 10px; font-size: 15px; font-weight: 800; color: var(--navy); }
   .quick ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -215,9 +225,11 @@
         <span class="ig-h" lang="en">@booom.tehran</span>
       </a>
     </div>
-    <div class="event">
+    <div class="sp">
       <p class="now">رویداد فروش در بوم</p>
-      <p class="wordmark" lang="en" aria-label="STEEL POP"><span class="steel">STEEL</span><span class="pop">POP</span></p>
+      <img src="img/brand/steelpop.png" alt="STEEL POP — Happening at BOOOM" width="1024" height="280">
+    </div>
+    <div class="event">
       <div class="when">
         <span class="d" id="evDates"></span>
         <span class="h" id="evHours"></span>
