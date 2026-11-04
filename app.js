@@ -10,6 +10,13 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   };
+  // prices are stored in million toman; whole millions show as «۲۱۰ میلیون تومان»,
+  // anything with a fraction (e.g. 3.8) shows in full: «۳٬۸۰۰٬۰۰۰ تومان»
+  var money = function (m) {
+    return Math.abs(m - Math.round(m)) < 1e-9
+      ? [fa(Math.round(m)), "میلیون تومان"]
+      : [fa(Math.round(m * 1e6)), "تومان"];
+  };
   var isLatin = function (s) { return /^[\x00-\x7FÀ-ſ\s]+$/.test(s); };
 
   // ── index items by code ─────────────────────────
@@ -48,7 +55,7 @@
   function card(it) {
     var hasPrice = typeof it.price === "number";
     var price = hasPrice
-      ? '<p class="price"><strong>' + fa(it.price) + "</strong><span>میلیون تومان</span></p>"
+      ? '<p class="price"><strong>' + money(it.price)[0] + "</strong><span>" + money(it.price)[1] + "</span></p>"
       : '<p class="price na"><strong>استعلام در غرفه</strong></p>';
     return (
       '<article class="card' + (it.sold ? " is-sold" : "") + '" data-code="' + esc(it.code) + '">' +
@@ -130,13 +137,14 @@
     document.body.classList.toggle("has-list", list.length > 0);
     $("listN").textContent = fa(list.length);
     var t = sumOf(list);
-    $("listT").textContent = "جمع " + fa(t.s) + " میلیون تومان" + (t.ask ? " +" : "");
+    $("listT").textContent = "جمع " + money(t.s).join(" ") + (t.ask ? " +" : "");
   }
 
   function renderSheet() {
     if (!list.length) {
       $("sheetBody").innerHTML = '<p class="hint">لیست شما خالی است.</p>';
       $("sheetTotal").textContent = fa(0);
+      $("sheetUnit").textContent = "میلیون تومان";
       return;
     }
     var html = C.sections.map(function (s) {
@@ -152,17 +160,19 @@
               '<div class="c">' + esc(it.code) + "</div>" +
               '<div class="tt"' + (isLatin(it.title) ? ' dir="ltr" lang="en"' : "") + ">" + esc(it.title) + "</div>" +
               '<div class="pp">' + (it.sub ? esc(it.sub) + " · " : "") +
-                (typeof it.price === "number" ? fa(it.price) + " میلیون تومان" : "استعلام در غرفه") + "</div>" +
+                (typeof it.price === "number" ? money(it.price).join(" ") : "استعلام در غرفه") + "</div>" +
             "</div>" +
             '<button class="rm" type="button" data-rm="' + esc(c) + '" aria-label="حذف ' + esc(it.title) + ' از لیست">×</button>' +
           "</div>";
         }).join("") +
-        (codes.length > 1 ? '<div class="sub-t">جمع این بخش: ' + fa(st.s) + " میلیون تومان</div>" : "") +
+        (codes.length > 1 ? '<div class="sub-t">جمع این بخش: ' + money(st.s).join(" ") + "</div>" : "") +
         "</div>";
     }).join("");
     $("sheetBody").innerHTML = html;
     var t = sumOf(list);
-    $("sheetTotal").textContent = fa(t.s) + (t.ask ? " +" : "");
+    var tm = money(t.s);
+    $("sheetTotal").textContent = tm[0] + (t.ask ? " +" : "");
+    $("sheetUnit").textContent = tm[1];
   }
 
   var toastT;
