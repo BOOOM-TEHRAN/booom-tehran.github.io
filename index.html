@@ -38,11 +38,18 @@
   .wrap { max-width: 980px; margin: 0 auto; padding-inline: var(--gutter); }
 
   /* ── Hero ───────────────────────────── */
-  .hero { position: relative; overflow: hidden; padding-top: max(18px, env(safe-area-inset-top, 0px)); padding-bottom: calc(min(64vw, 420px) * .5 + 24px); }
-  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .topbar img { height: 17px; width: auto; display: block; }
-  .topbar span { font-size: 13px; font-weight: 700; color: var(--navy); }
-  .wordmark { margin: 34px 0 0; font-weight: 900; line-height: .9; letter-spacing: -.02em; font-size: clamp(42px, 13.4vw, 104px); color: var(--navy); display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 .14em; direction: ltr; justify-content: flex-start; }
+  .hero { --rs: min(54vw, 300px); position: relative; overflow: hidden; padding-top: max(36px, env(safe-area-inset-top, 0px)); padding-bottom: calc(var(--rs) * .36 + 16px); }
+  .hero .wrap { position: relative; z-index: 1; }
+  .booom-xl { margin: 0; line-height: 0; }
+  .booom-xl img { width: min(78vw, 420px); height: auto; display: block; }
+  .brandblock .tag { margin: 14px 0 0; direction: ltr; text-align: right; font-size: clamp(11px, 3.2vw, 14px); letter-spacing: .16em; color: var(--navy); font-weight: 600; }
+  .intro { margin: 18px 0 0; font-size: 16.5px; line-height: 1.9; max-width: 34em; }
+  .ig { margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; text-decoration: none; background: var(--navy); color: var(--cream); border-radius: 999px; padding: 10px 20px 10px 22px; font-weight: 700; font-size: 15px; line-height: 1.4; }
+  .ig svg { flex: none; }
+  .ig-h { direction: ltr; font-weight: 800; color: #f3b27a; }
+  .event { margin-top: 36px; padding-top: 22px; border-top: 2px solid var(--navy); }
+  .now { margin: 0; font-size: 13.5px; font-weight: 800; color: var(--orange); }
+  .wordmark { margin: 10px 0 0; font-weight: 900; line-height: .9; letter-spacing: -.02em; font-size: clamp(38px, 11.5vw, 80px); color: var(--navy); display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 .14em; direction: ltr; justify-content: flex-start; }
   .wordmark .steel { display: inline-block; transform: skewX(-10deg); }
   .wordmark .pop {
     color: transparent;
@@ -55,11 +62,11 @@
   .lede { margin: 26px 0 0; font-size: 15.5px; line-height: 2; color: var(--ink); }
   .lede p { margin: 0; }
   .lede b { font-weight: 800; color: var(--navy); }
-  .when { margin: 26px 0 0; display: grid; gap: 2px; }
+  .when { margin: 18px 0 0; display: grid; gap: 2px; }
   .when .d { font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.4; }
   .when .h { font-size: 15px; color: var(--mute); }
   .when .a { font-size: 14px; color: var(--mute); }
-  .rings { --rs: min(64vw, 420px); position: absolute; left: 0; right: 0; bottom: calc(var(--rs) * -.5); height: var(--rs); pointer-events: none; }
+  .rings { position: absolute; left: 0; right: 0; bottom: calc(var(--rs) * -.64); height: var(--rs); pointer-events: none; }
   .rings i {
     position: absolute; top: 0; width: var(--rs); height: var(--rs); border-radius: 50%;
     background: repeating-radial-gradient(circle, transparent 0 2.6px, var(--ring) 2.6px 3.6px);
@@ -187,21 +194,24 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="topbar">
-      <img src="img/brand/booom.png" alt="BOOOM" width="387" height="72">
-      <span id="topDates"></span>
+    <div class="brandblock">
+      <h1 class="booom-xl"><img src="img/brand/booom.png" alt="BOOOM" width="387" height="72"></h1>
+      <p class="tag" lang="en">DIFFERENT DIRECTIONS · ONE IDENTITY</p>
+      <p class="intro">بوم فضایی است که چند برند مستقل را زیر یک سقف کنار هم آورده؛ جهت‌های متفاوت، با یک هویت مشترک.</p>
+      <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>
+        <span class="ig-t">بوم را دنبال کنید</span>
+        <span class="ig-h" lang="en">@booom.tehran</span>
+      </a>
     </div>
-    <h1 class="wordmark" lang="en" aria-label="STEEL POP"><span class="steel">STEEL</span><span class="pop">POP</span></h1>
-    <p class="happening" lang="en">HAPPENING AT BOOOM</p>
-    <div class="lede">
-      <p>«<b>مغازه</b>» با ارائه‌ی مجموعه‌ای از آبجکت‌های <b>Seletti</b>، طرح‌هایی منطبق بر زبان بصری <b>پاپ‌آرت</b></p>
-      <p><b>ادد</b> با رونمایی از مجموعه‌ی جدید آبجکت‌های <b>استیل</b></p>
-      <p><b>بوووم</b> بستری <b>برای پیوند</b> این دو جهان متضاد</p>
-    </div>
-    <div class="when">
-      <span class="d" id="evDates"></span>
-      <span class="h" id="evHours"></span>
-      <span class="a" id="evAddr"></span>
+    <div class="event">
+      <p class="now">رویداد فروش در بوم</p>
+      <p class="wordmark" lang="en" aria-label="STEEL POP"><span class="steel">STEEL</span><span class="pop">POP</span></p>
+      <div class="when">
+        <span class="d" id="evDates"></span>
+        <span class="h" id="evHours"></span>
+        <span class="a" id="evAddr"></span>
+      </div>
     </div>
   </div>
   <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -214,11 +224,8 @@
 </main>
 
 <section class="about wrap" id="about" aria-labelledby="aboutTitle">
-  <img class="booom" src="img/brand/booom.png" alt="BOOOM" width="387" height="72">
-  <p class="tag" lang="en">DIFFERENT DIRECTIONS · ONE IDENTITY</p>
-  <h2 id="aboutTitle" style="margin-top:22px">درباره‌ی بوم</h2>
-  <p class="txt" style="margin-top:0">بوم فضایی است که چند برند مستقل را زیر یک سقف کنار هم آورده؛ جهت‌های متفاوت، با یک هویت مشترک.</p>
-  <p class="txt">پاپ‌آرت با رنگ‌های جسورانه و فرم‌های غیرمتعارف، نگاهی تازه به اشیای روزمره دارد. STEEL POP از تلاقی متریال استیل با این زبان بصری شکل گرفته؛ جایی که رنگ، فرم و متریال کنار هم قرار می‌گیرند تا تعریفی متفاوت از اشیای روزمره ارائه دهند.</p>
+  <h2 id="aboutTitle" style="margin-top:0">درباره‌ی STEEL POP</h2>
+  <p class="txt" style="margin-top:0">پاپ‌آرت با رنگ‌های جسورانه و فرم‌های غیرمتعارف، نگاهی تازه به اشیای روزمره دارد. STEEL POP از تلاقی متریال استیل با این زبان بصری شکل گرفته؛ جایی که رنگ، فرم و متریال کنار هم قرار می‌گیرند تا تعریفی متفاوت از اشیای روزمره ارائه دهند.</p>
 
   <h2>در این رویداد</h2>
   <ul class="who" id="who"></ul>
@@ -230,11 +237,18 @@
     <button class="btn ghost" type="button" id="copyAddr">کپی نشانی</button>
     <a class="btn" id="mapLink" target="_blank" rel="noopener" hidden>مسیریابی</a>
   </div>
+
+  <h2>بوم در اینستاگرام</h2>
+  <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" style="margin-top:0">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>
+    <span class="ig-t">دنبال کنید</span>
+    <span class="ig-h" lang="en">@booom.tehran</span>
+  </a>
 </section>
 
 <footer>
   <img src="img/brand/booom.png" alt="BOOOM" width="387" height="72">
-  STEEL POP · <span id="footDates"></span>
+  <a href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" lang="en" style="color:inherit">@booom.tehran</a> · STEEL POP · <span id="footDates"></span>
 </footer>
 
 <button class="listbar" id="listbar" type="button" hidden aria-haspopup="dialog">

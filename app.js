@@ -20,7 +20,6 @@
 
   // ── event info ──────────────────────────────────
   var ev = C.event;
-  $("topDates").textContent = ev.dates;
   $("evDates").textContent = ev.dates;
   $("evHours").textContent = ev.hours;
   $("evAddr").textContent = ev.address;
@@ -36,7 +35,8 @@
   // ── nav + sections ──────────────────────────────
   $("tabs").innerHTML = C.sections.map(function (s) {
     return '<li><a href="#' + s.id + '">' + esc(s.nav) + "</a></li>";
-  }).join("") + '<li><a href="#about">درباره‌ی بوم</a></li>';
+  }).join("") + '<li><a href="#about">نشانی</a></li>' +
+    '<li><a href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" lang="en" dir="ltr">Instagram</a></li>';
 
   function card(it) {
     var hasPrice = typeof it.price === "number";
