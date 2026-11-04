@@ -67,11 +67,32 @@ window.CATALOG = {
     {
       id: "added",
       nav: "ادد",
-      title: "ADDED",
-      brand: "ادد · تیم طراحی بوم",
-      note: "رونمایی از کالکشن جدید آبجکت‌های استیل",
-      layout: "grid",
-      items: []
+      title: "ادد",
+      brand: "ADDED · تیم طراحی بوم",
+      note: "کالکشن جدید آبجکت‌های استیل",
+      logo: "img/brand/added.png",
+      layout: "grid sq",
+      items: [
+        { code: "D1",  title: "NEW SOFA",                 specs: ["۱۴۶ × ۷۵ · ارتفاع ۵۰"],                                           price: 210, img: "img/added/d01.jpg", w: 1000, h: 667 },
+        { code: "D2",  title: "4-LEVEL STAND",            specs: ["۱۲۰ × ۳۰ · ارتفاع ۸۵", "استیل ضد زنگ"],                            price: 85,  img: "img/added/d02.jpg", w: 1000, h: 1000 },
+        { code: "D3",  title: "MODULAR SHELF",            specs: ["استیل ضد زنگ"],                                                   price: 210, img: "img/added/d03.jpg", w: 750,  h: 1000 },
+        { code: "D4",  title: "MODULAR SHELF",            specs: ["طبقه‌ها: ۱ × ۱۵۶، ۱ × ۲۳۰، ۴ × ۸۲ سانتی‌متر", "استیل ضد زنگ"],    price: 154, img: "img/added/d04.jpg", w: 1000, h: 1000 },
+        { code: "D5",  title: "MODULAR SHELF",            specs: ["طبقه‌ها: ۳ × ۸۲، ۱ × ۲۳۰، ۲ × ۱۵۶ سانتی‌متر", "استیل ضد زنگ"],    price: 162, img: "img/added/d05.jpg", w: 1000, h: 1000 },
+        { code: "D6",  title: "MODULAR SHELF",            specs: ["طبقه‌ها: ۲ × ۱۲۰، ۱ × ۶۴ سانتی‌متر", "استیل ضد زنگ"],              price: 64,  img: "img/added/d06.jpg", w: 1000, h: 667 },
+        { code: "D7",  title: "CYLINDER COFFEE",          specs: ["۷۸ × ۳۰", "استیل ضد زنگ"],                                         price: 95,  img: "img/added/d07.jpg", w: 1000, h: 667 },
+        { code: "D8",  title: "JOINT COFFEE",             specs: ["۱۰۰ × ۱۰۰ × ۳۰", "استیل ضد زنگ"],                                  price: 120, img: "img/added/d08.jpg", w: 1000, h: 667 },
+        { code: "D9",  title: "JOINT DINING",             specs: ["۲۰۰ × ۱۰۰ × ۷۵", "استیل ضد زنگ"],                                  price: 195, img: "img/added/d09.jpg", w: 1000, h: 667 },
+        { code: "D10", title: "HANGING MIRROR OBJECT",    specs: ["۹۰ × ۳۰", "استیل ضد زنگ"],                                         price: 60,  img: "img/added/d10.jpg", w: 667,  h: 1000 },
+        { code: "D11", title: "CUBE TV CONSOLE",          specs: ["۲۱۳ × ۴۰ × ۳۵", "استیل ضد زنگ"],                                   price: 145, img: "img/added/d11.jpg", w: 1000, h: 750 },
+        { code: "D12", title: "CURVED MIRROR",            specs: ["استیل ضد زنگ"],                                                   price: 98,  img: "img/added/d12.jpg", w: 750,  h: 1000 },
+        { code: "D13", title: "UFO",                      specs: ["استیل ضد زنگ"],                                                   price: 3.8, img: "img/added/d13.jpg", w: 666,  h: 1000 },
+        { code: "D14", title: "MIRROR / MATTE PARTITION", specs: ["استیل ضد زنگ"],                                                   price: 355, img: "img/added/d14.jpg", w: 908,  h: 1000 },
+        { code: "D15", title: "CONE SIDE",                specs: ["استیل ضد زنگ"],                                                   price: 95,  img: "img/added/d15.jpg", w: 800,  h: 1000 },
+        { code: "D16", title: "CONE DINING",              specs: ["استیل ضد زنگ"],                                                   price: 190, img: "img/added/d16.jpg", w: 914,  h: 1000 },
+        { code: "D17", title: "ADDED PLAY TIC TAC TOE",   specs: [],                                                                 price: 45,  img: "img/added/d17.jpg", w: 750,  h: 1000 },
+        { code: "D18", title: "STRIPED SEAT",             specs: ["۱۸۰ × ۴۵ · ارتفاع ۵۰", "فلز آبکاری‌شده"],                          price: 120, img: "img/added/d18.jpg", w: 1000, h: 750 },
+        { code: "D19", title: "ADDED PLAY PING",          specs: ["۱۸۶ × ۹۰", "استیل ضد زنگ"],                                        price: 195, img: "img/added/d19.jpg", w: 1000, h: 667 }
+      ]
     },
     {
       id: "maghaaze",

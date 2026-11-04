@@ -57,7 +57,7 @@
         "</button>" +
         '<div class="body">' +
           '<span class="code">' + esc(it.code) + "</span>" +
-          "<h3>" + esc(it.title) + "</h3>" +
+          "<h3" + (isLatin(it.title) ? ' dir="ltr" lang="en"' : "") + ">" + esc(it.title) + "</h3>" +
           (it.sub ? '<p class="sub">' + esc(it.sub) + "</p>" : "") +
           (it.specs && it.specs.length ? '<p class="specs">' + it.specs.map(esc).join(" · ") + "</p>" : "") +
           '<div class="buy">' + price +
@@ -150,7 +150,7 @@
             '<img src="' + esc(it.img) + '" alt="">' +
             "<div>" +
               '<div class="c">' + esc(it.code) + "</div>" +
-              '<div class="tt">' + esc(it.title) + "</div>" +
+              '<div class="tt"' + (isLatin(it.title) ? ' dir="ltr" lang="en"' : "") + ">" + esc(it.title) + "</div>" +
               '<div class="pp">' + (it.sub ? esc(it.sub) + " · " : "") +
                 (typeof it.price === "number" ? fa(it.price) + " میلیون تومان" : "استعلام در غرفه") + "</div>" +
             "</div>" +
