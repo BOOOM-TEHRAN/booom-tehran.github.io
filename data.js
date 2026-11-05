@@ -87,7 +87,7 @@ window.CATALOG = {
         { code: "R5", title: "گبه شیراز نقش محرمات رنگی",    specs: ["قدمت ۴۰ سال", "۱۶۰ × ۱۰۰"], price: 137, img: "img/rugs/r05.jpg", w: 640, h: 427 },
         { code: "R6", title: "گبه شیراز خشتی ریز",           specs: ["قدمت ۷۰ سال", "۱۰۲ × ۱۴۶"], price: 240, img: "img/rugs/r06.jpg", w: 640, h: 427 },
         { code: "R7", title: "گبه نوبافت قشقایی طرح شیر سنگی", specs: ["نوبافت", "۱۵۰ × ۱۰۰"],    price: 80,  img: "img/rugs/r07.jpg", w: 640, h: 427 },
-        { code: "R8", title: "سره کامو نقش محرمات",          specs: ["قدمت ۸۰ سال", "۱۲۰ × ۱۱۰"], price: 250, img: "img/rugs/r08.jpg", w: 640, h: 427 }
+        { code: "R8", title: "سفره کامو نقش محرمات",          specs: ["قدمت ۸۰ سال", "۱۲۰ × ۱۱۰"], price: 250, img: "img/rugs/r08.jpg", w: 640, h: 427 }
       ]
     },
     {
