@@ -144,7 +144,7 @@ window.CATALOG = {
         { code: "M16", title: "Seletti Plate Mat",                            specs: [],                         price: 10,  img: "img/maghaaze/m16.jpg", w: 447,  h: 447 },
         { code: "M17", title: "Seletti Decorative Spaceship",                 specs: [],                         price: 42,  img: "img/maghaaze/m17.jpg", w: 1000, h: 1000 },
         { code: "M18", title: "Seletti Egg Lighting",                         specs: [],                         price: 30,  img: "img/maghaaze/m18.jpg", w: 1000, h: 500 },
-        { code: "M19", title: "Seletti Ceramic Lighting",                     specs: [],                         price: 40,  img: "img/maghaaze/m19.jpg", w: 814,  h: 1000 },
+        { code: "M19", title: "Seletti Ceramic Lighting",                     specs: ["قیمت هر عدد"], price: 40,  img: "img/maghaaze/m19.jpg", w: 814,  h: 1000 },
         { code: "M20", title: "Seletti Vibrant Lamp Wire",                    specs: ["۵ متری", "قیمت هر عدد"],  price: 7.5, img: "img/maghaaze/m20.jpg", w: 791,  h: 1000 },
         { code: "M21", title: "Crystal Candle Holder",                        specs: ["قیمت هر عدد"],            price: 30,  img: "img/maghaaze/m21.jpg", w: 1000, h: 500 },
         { code: "M22", title: "Seletti Ceiling Lighting",                     specs: [],                         price: 40,  img: "img/maghaaze/m22.jpg", w: 616,  h: 462 },
