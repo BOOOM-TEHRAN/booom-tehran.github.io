@@ -153,7 +153,8 @@ window.CATALOG = {
         { code: "M20", title: "Seletti Vibrant Lamp Wire",                    specs: ["۵ متری", "قیمت هر عدد"],  price: 7.5, img: "img/maghaaze/m20.jpg", w: 791,  h: 1000 },
         { code: "M21", title: "Crystal Candle Holder",                        specs: ["قیمت هر عدد"],            price: 30,  img: "img/maghaaze/m21.jpg", w: 1000, h: 500 },
         { code: "M22", title: "Seletti Ceiling Lighting",                     specs: [],                         price: 40,  img: "img/maghaaze/m22.jpg", w: 616,  h: 462 },
-        { code: "M23", title: "Seletti Table Lamp",                           specs: [],                         price: 40,  img: "img/maghaaze/m23.jpg", w: 334,  h: 552 }
+        { code: "M23", title: "Seletti Table Lamp",                           specs: [],                         price: 40,  img: "img/maghaaze/m23.jpg", w: 334,  h: 552 },
+        { code: "M24", title: "آرش نظری", sub: "بدون عنوان", specs: ["۱۰۰ × ۱۷۰ سانتی‌متر", "چاپ دیجیتال روی استیل ضد زنگ", "سال تولید ۲۰۱۱"], price: null, priceText: ["۶٬۰۰۰", "دلار"], img: "img/maghaaze/m24.jpg", w: 1000, h: 588 }
       ]
     }
   ],

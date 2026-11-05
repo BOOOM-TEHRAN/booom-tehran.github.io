@@ -55,7 +55,9 @@
     var hasPrice = typeof it.price === "number";
     var price = hasPrice
       ? '<p class="price"><strong>' + money(it.price)[0] + "</strong><span>" + money(it.price)[1] + "</span></p>"
-      : '<p class="price na"><strong>استعلام در غرفه</strong></p>';
+      : it.priceText
+        ? '<p class="price"><strong>' + esc(it.priceText[0]) + "</strong><span>" + esc(it.priceText[1]) + "</span></p>"
+        : '<p class="price na"><strong>استعلام در غرفه</strong></p>';
     return (
       '<article class="card' + (it.sold ? " is-sold" : "") + '" data-code="' + esc(it.code) + '">' +
         '<button class="ph" type="button" data-zoom="' + esc(it.code) + '" aria-label="بزرگ‌نمایی ' + esc(it.title) + '">' +
@@ -132,9 +134,20 @@
   function save() { try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
 
   function sumOf(codes) {
-    var s = 0, ask = false;
-    codes.forEach(function (c) { var it = byCode[c]; if (typeof it.price === "number") s += it.price; else ask = true; });
-    return { s: s, ask: ask };
+    var s = 0, ask = false, extra = [];
+    codes.forEach(function (c) {
+      var it = byCode[c];
+      if (typeof it.price === "number") s += it.price;
+      else if (it.priceText) extra.push(it.priceText.join(" "));
+      else ask = true;
+    });
+    return { s: s, ask: ask, extra: extra };
+  }
+
+  // items priced in another currency are listed beside the toman total, never added to it
+  function totalText(t) {
+    var parts = t.s || !t.extra.length ? [money(t.s).join(" ")] : [];
+    return parts.concat(t.extra).join(" + ") + (t.ask ? " +" : "");
   }
 
   function refresh() {
@@ -150,7 +163,7 @@
     document.body.classList.toggle("has-list", list.length > 0);
     $("listN").textContent = fa(list.length);
     var t = sumOf(list);
-    $("listT").textContent = "جمع " + money(t.s).join(" ") + (t.ask ? " +" : "");
+    $("listT").textContent = "جمع " + totalText(t);
   }
 
   function renderSheet() {
@@ -173,19 +186,19 @@
               '<div class="c">' + esc(it.code) + "</div>" +
               '<div class="tt"' + (isLatin(it.title) ? ' dir="ltr" lang="en"' : "") + ">" + esc(it.title) + "</div>" +
               '<div class="pp">' + (it.sub ? esc(it.sub) + " · " : "") +
-                (typeof it.price === "number" ? money(it.price).join(" ") : "استعلام در غرفه") + "</div>" +
+                (typeof it.price === "number" ? money(it.price).join(" ") : it.priceText ? esc(it.priceText.join(" ")) : "استعلام در غرفه") + "</div>" +
             "</div>" +
             '<button class="rm" type="button" data-rm="' + esc(c) + '" aria-label="حذف ' + esc(it.title) + ' از لیست">×</button>' +
           "</div>";
         }).join("") +
-        (codes.length > 1 ? '<div class="sub-t">جمع این بخش: ' + money(st.s).join(" ") + "</div>" : "") +
+        (codes.length > 1 ? '<div class="sub-t">جمع این بخش: ' + esc(totalText(st)) + "</div>" : "") +
         "</div>";
     }).join("");
     $("sheetBody").innerHTML = html;
     var t = sumOf(list);
     var tm = money(t.s);
-    $("sheetTotal").textContent = tm[0] + (t.ask ? " +" : "");
-    $("sheetUnit").textContent = tm[1];
+    $("sheetTotal").textContent = t.extra.length ? totalText(t) : tm[0] + (t.ask ? " +" : "");
+    $("sheetUnit").textContent = t.extra.length ? "" : tm[1];
   }
 
   var toastT;
