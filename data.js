@@ -30,7 +30,7 @@ window.CATALOG = {
         { code: "A4",  title: "نیکزاد نجومی",  specs: ["۴۴ × ۶۰ سانتی‌متر"],  price: 110, img: "img/art/a04.jpg", w: 900, h: 600 },
         { code: "A5",  title: "نیکزاد نجومی",  specs: ["۴۴ × ۶۰ سانتی‌متر"],  price: 110, img: "img/art/a05.jpg", w: 737, h: 900 },
         { code: "A6",  title: "نیکزاد نجومی",  specs: ["۷۶ × ۵۶ سانتی‌متر"],  price: 500, img: "img/art/a06.jpg", w: 655, h: 900 },
-        { code: "A7",  title: "داریوش حسینی",  specs: ["۷۵ × ۵۶ سانتی‌متر"],  price: 70,  img: "img/art/a07.jpg", w: 447, h: 603 },
+        { code: "A7",  title: "داریوش حسینی",  specs: ["۷۵ × ۵۶ سانتی‌متر"],  price: 70,  img: "img/art/a07.jpg", w: 447, h: 603, sold: true },
         { code: "A8",  title: "فرشید ملکی",    specs: ["۷۶ × ۵۷ سانتی‌متر"],  price: 70,  img: "img/art/a08.jpg", w: 900, h: 676 },
         { code: "A9",  title: "فرشید ملکی",    specs: ["۷۶ × ۵۷ سانتی‌متر"],  price: 70,  img: "img/art/a09.jpg", w: 900, h: 671 },
         { code: "A10", title: "فریدون آو",     specs: ["۷۶ × ۵۷ سانتی‌متر"],  price: 320, img: "img/art/a10.jpg", w: 900, h: 673 },
