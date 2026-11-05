@@ -20,7 +20,7 @@ window.CATALOG = {
       nav: "آثار هنری",
       title: "آثار هنری",
       brand: "هایا استودیو",
-      note: "آثار چاپی",
+      note: "آثار هنری",
       unit: "اثر",
       layout: "grid",
       items: [
