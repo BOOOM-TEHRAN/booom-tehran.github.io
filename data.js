@@ -25,7 +25,7 @@ window.CATALOG = {
       layout: "grid",
       items: [
         { code: "A1",  title: "نیکزاد نجومی",  specs: ["۴۴ × ۶۰ سانتی‌متر"],  price: 110, img: "img/art/a01.jpg", w: 683, h: 900 },
-        { code: "A2",  title: "فریدون آو",     specs: ["۳۸ × ۵۷ سانتی‌متر"],  price: 150, img: "img/art/a02.jpg", w: 900, h: 600 },
+        { code: "A2",  title: "فریدون آو",     specs: ["۳۸ × ۵۷ سانتی‌متر"],  price: 150, img: "img/art/a02.jpg", w: 900, h: 600, sold: true },
         { code: "A3",  title: "نیکزاد نجومی",  specs: ["۴۴ × ۶۰ سانتی‌متر"],  price: 80,  img: "img/art/a03.jpg", w: 600, h: 900 },
         { code: "A4",  title: "نیکزاد نجومی",  specs: ["۴۴ × ۶۰ سانتی‌متر"],  price: 110, img: "img/art/a04.jpg", w: 900, h: 600 },
         { code: "A5",  title: "نیکزاد نجومی",  specs: ["۴۴ × ۶۰ سانتی‌متر"],  price: 110, img: "img/art/a05.jpg", w: 737, h: 900 },
