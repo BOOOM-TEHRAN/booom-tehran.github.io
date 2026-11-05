@@ -77,6 +77,20 @@
     );
   }
 
+  // cards in order; a heading goes in wherever the item's `group` changes
+  function cards(items) {
+    var out = "", g = null;
+    items.forEach(function (it) {
+      if (it.group && it.group !== g) {
+        g = it.group;
+        var c = items.filter(function (x) { return x.group === g; }).length;
+        out += '<div class="grp-h"><h3>' + esc(g) + "</h3><span>" + fa(c) + " اثر</span></div>";
+      }
+      out += card(it);
+    });
+    return out;
+  }
+
   $("sections").insertAdjacentHTML("beforeend", C.sections.map(function (s) {
     var n = s.items.length;
     var head =
@@ -87,7 +101,7 @@
         (n ? '<p class="meta">' + fa(n) + " " + esc(s.unit || "قطعه") + "</p>" : "") +
       "</div>";
     var body = n
-      ? '<div class="items ' + (s.layout || "grid") + '">' + s.items.map(card).join("") + "</div>"
+      ? '<div class="items ' + (s.layout || "grid") + '">' + cards(s.items) + "</div>"
       : '<div class="soon"><strong>به‌زودی</strong><p>فهرست قیمت این بخش به‌زودی اینجا قرار می‌گیرد.</p></div>';
     return '<section class="sec" id="' + s.id + '" aria-label="' + esc(s.nav) + '">' + head + body + "</section>";
   }).join(""));

@@ -61,7 +61,24 @@ window.CATALOG = {
         { code: "A16", title: "فرشید مثقالی",  sub: "پوستر فیلم دار",           specs: ["۱۰۰ × ۷۰ سانتی‌متر"], price: 180, img: "img/art/a16.jpg", w: 625, h: 900 },
         { code: "A17", title: "آیدین آغداشلو", sub: "پوستر فیلم تیغ و ابریشم",  specs: ["۵۰ × ۷۰ سانتی‌متر"],  price: 90,  img: "img/art/a17.jpg", w: 635, h: 900 },
         { code: "A18", title: "بهشتی",         sub: "پوستر فیلم صادق کرده",     specs: ["۵۰ × ۷۰ سانتی‌متر"],  price: 40,  img: "img/art/a18.jpg", w: 640, h: 900 },
-        { code: "A19", title: "مرتضی ممیز",    sub: "پوستر فیلم اجاره‌نشین‌ها", specs: ["۵۰ × ۷۰ سانتی‌متر"],  price: 50,  img: "img/art/a19.jpg", w: 599, h: 900 }
+        { code: "A19", title: "مرتضی ممیز",    sub: "پوستر فیلم اجاره‌نشین‌ها", specs: ["۵۰ × ۷۰ سانتی‌متر"],  price: 50,  img: "img/art/a19.jpg", w: 599, h: 900 },
+        { code: "A20", title: "آیدین آغداشلو",   specs: ["۵۶ × ۷۶ سانتی‌متر"],   price: 900, img: "img/art/a20.jpg", w: 476, h: 640 },
+        { code: "A21", title: "هبال تاژاندره",   specs: ["۱۶۰ × ۱۹۰ سانتی‌متر"], price: 200, img: "img/art/a21.jpg", w: 512, h: 640 },
+        { code: "A22", title: "یاسمن عطایی",     specs: ["۱۸۰ × ۱۲۰ سانتی‌متر"], price: 140, img: "img/art/a22.jpg", w: 640, h: 461 },
+        { code: "A23", title: "میلاد شفائی",     specs: ["۱۰۰ × ۷۰ سانتی‌متر"],  price: 20,  img: "img/art/a23.jpg", w: 471, h: 640 },
+        { code: "A24", group: "کالکشن زمستان سرگردان", title: "بیتا فیاضی",       specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 18, img: "img/art/a24.jpg", w: 640, h: 427 },
+        { code: "A25", group: "کالکشن زمستان سرگردان", title: "فریدون آو",        specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 30, img: "img/art/a25.jpg", w: 640, h: 443 },
+        { code: "A26", group: "کالکشن زمستان سرگردان", title: "بهزاد حاتم",       specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 15, img: "img/art/a26.jpg", w: 462, h: 640 },
+        { code: "A27", group: "کالکشن زمستان سرگردان", title: "آیدین آغداشلو",    specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 70, img: "img/art/a27.jpg", w: 441, h: 640 },
+        { code: "A28", group: "کالکشن زمستان سرگردان", title: "پارسا پورابراهیم", specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 7,  img: "img/art/a28.jpg", w: 476, h: 635 },
+        { code: "A29", group: "کالکشن زمستان سرگردان", title: "مرتضی پورحسینی",   specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 10, img: "img/art/a29.jpg", w: 452, h: 640 },
+        { code: "A30", group: "کالکشن زمستان سرگردان", title: "محسن احمدوند",     specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 9,  img: "img/art/a30.jpg", w: 422, h: 573 },
+        { code: "A31", group: "کالکشن زمستان سرگردان", title: "شایا شهرستانی",    specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 9,  img: "img/art/a31.jpg", w: 480, h: 640 },
+        { code: "A32", group: "کالکشن زمستان سرگردان", title: "امیر فرهاد",       specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 9,  img: "img/art/a32.jpg", w: 480, h: 640 },
+        { code: "A33", group: "کالکشن زمستان سرگردان", title: "امیر فرهاد",       specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 9,  img: "img/art/a33.jpg", w: 480, h: 640 },
+        { code: "A34", group: "کالکشن زمستان سرگردان", title: "پریوش گنجی",       specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 18, img: "img/art/a34.jpg", w: 465, h: 640 },
+        { code: "A35", group: "کالکشن زمستان سرگردان", title: "بهناز قاسمی",      specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 9,  img: "img/art/a35.jpg", w: 560, h: 427 },
+        { code: "A36", group: "کالکشن زمستان سرگردان", title: "ناهید بهبودیان",   specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 9,  img: "img/art/a36.jpg", w: 640, h: 480 }
       ]
     },
     {
