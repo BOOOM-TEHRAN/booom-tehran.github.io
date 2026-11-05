@@ -146,6 +146,21 @@ window.CATALOG = {
         { code: "M22", title: "Seletti Ceiling Lighting",                     specs: [],                         price: 40,  img: "img/maghaaze/m22.jpg", w: 616,  h: 462 },
         { code: "M23", title: "Seletti Table Lamp",                           specs: [],                         price: 40,  img: "img/maghaaze/m23.jpg", w: 334,  h: 552 }
       ]
+    },
+    {
+      id: "azizi",
+      nav: "علیرضا عزیزی",
+      title: "علیرضا عزیزی",
+      brand: "DAR BE DAR — PHASE 03",
+      note: "چاپ سیلک‌اسکرین روی کاغذ فاین‌آرت · ۲۰۲۶",
+      unit: "اثر",
+      layout: "grid sq",
+      items: [
+        { code: "Z1", title: "DBD-P03-A01", specs: ["۵۰ × ۵۰ سانتی‌متر", "ادیشن ۳"], price: 45, img: "img/azizi/z1.jpg", w: 1000, h: 991 },
+        { code: "Z2", title: "DBD-P03-A02", specs: ["۵۰ × ۵۰ سانتی‌متر", "ادیشن ۵"], price: 75, img: "img/azizi/z2.jpg", w: 1000, h: 1000 },
+        { code: "Z3", title: "DBD-P03-A03", specs: ["۵۰ × ۵۰ سانتی‌متر", "ادیشن ۴"], price: 60, img: "img/azizi/z3.jpg", w: 1000, h: 995 },
+        { code: "Z4", title: "DBD-P03-A04", specs: ["۵۰ × ۵۰ سانتی‌متر", "ادیشن ۴"], price: 80, img: "img/azizi/z4.jpg", w: 1000, h: 998 }
+      ]
     }
   ],
 
@@ -154,6 +169,7 @@ window.CATALOG = {
     ["ADDED", "کالکشن جدید آبجکت‌های استیل"],
     ["MAGHAAZE", "آبجکت‌های Seletti"],
     ["Haya Studio", "آثار هنری"],
+    ["Alireza Azizi", "آثار چاپی"],
     ["Zolfaghari 1350", "فرش"],
     ["84", "پوشاک"],
     ["TheMoak", "عینک"],

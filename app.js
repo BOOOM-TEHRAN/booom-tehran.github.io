@@ -42,8 +42,7 @@
   // ── nav + sections ──────────────────────────────
   $("tabs").innerHTML = C.sections.map(function (s) {
     return '<li><a href="#' + s.id + '">' + esc(s.nav) + "</a></li>";
-  }).join("") + '<li><a href="#about">نشانی</a></li>' +
-    '<li><a href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" lang="en" dir="ltr">Instagram</a></li>';
+  }).join("");
 
   $("quick").innerHTML = C.sections.map(function (s) {
     var n = s.items.length;
