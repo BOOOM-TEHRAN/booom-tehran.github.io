@@ -120,8 +120,32 @@ window.CATALOG = {
       title: "MAGHAAZE",
       brand: "مغازه",
       note: "آبجکت‌های Seletti با زبان بصری پاپ‌آرت",
-      layout: "grid",
-      items: []
+      layout: "grid sq",
+      items: [
+        { code: "M1",  title: "Seletti x Toilet Paper Plate",                 specs: ["قیمت هر عدد"],            price: 10,  img: "img/maghaaze/m01.jpg", w: 800,  h: 800 },
+        { code: "M2",  title: "Seletti x Toilet Paper Bowl",                  specs: ["قیمت هر عدد"],            price: 10,  img: "img/maghaaze/m02.jpg", w: 1000, h: 1000 },
+        { code: "M3",  title: "Ceramic Moka Pot",                             specs: [],                         price: 16,  img: "img/maghaaze/m03.jpg", w: 1000, h: 973 },
+        { code: "M4",  title: "Kitchen Towel",                                specs: ["قیمت هر عدد"],            price: 5,   img: "img/maghaaze/m04.jpg", w: 640,  h: 548 },
+        { code: "M5",  title: "Seletti x Diesel Machine Collection Plate Large",  specs: ["قیمت هر عدد"],        price: 15,  img: "img/maghaaze/m05.jpg", w: 590,  h: 590 },
+        { code: "M6",  title: "Seletti x Diesel Machine Collection Plate Medium", specs: ["قیمت هر عدد"],        price: 15,  img: "img/maghaaze/m05.jpg", w: 590,  h: 590 },
+        { code: "M7",  title: "Seletti x Diesel Machine Collection Plate Small",  specs: ["قیمت هر عدد"],        price: 13,  img: "img/maghaaze/m05.jpg", w: 590,  h: 590 },
+        { code: "M8",  title: "Seletti x Diesel Machine Collection Plate",    specs: ["قیمت هر عدد"],            price: 15,  img: "img/maghaaze/m08.jpg", w: 1000, h: 1000 },
+        { code: "M9",  title: "Seletti Pie Plate Medium",                     specs: ["قیمت هر عدد"],            price: 15,  img: "img/maghaaze/m09.jpg", w: 841,  h: 1000 },
+        { code: "M10", title: "Seletti Pie Plate Small",                      specs: ["قیمت هر عدد"],            price: 13,  img: "img/maghaaze/m09.jpg", w: 841,  h: 1000 },
+        { code: "M11", title: "Seletti x Diesel Machine Collection Decorative Jar Large", specs: [],             price: 16,  img: "img/maghaaze/m11.jpg", w: 224,  h: 224 },
+        { code: "M12", title: "Seletti x Diesel Machine Collection Decorative Jar Small", specs: [],             price: 13,  img: "img/maghaaze/m12.jpg", w: 1000, h: 1000 },
+        { code: "M13", title: "Seletti Hybrid Soup Plate",                    specs: [],                         price: 16,  img: "img/maghaaze/m13.jpg", w: 1000, h: 500 },
+        { code: "M14", title: "Seletti x Toilet Paper China Plate",           specs: [],                         price: 16,  img: "img/maghaaze/m14.jpg", w: 1000, h: 500 },
+        { code: "M15", title: "Seletti x Pantone Magazine Holder",            specs: [],                         price: 16,  img: "img/maghaaze/m15.jpg", w: 640,  h: 640 },
+        { code: "M16", title: "Seletti Plate Mat",                            specs: [],                         price: 10,  img: "img/maghaaze/m16.jpg", w: 447,  h: 447 },
+        { code: "M17", title: "Seletti Decorative Spaceship",                 specs: [],                         price: 42,  img: "img/maghaaze/m17.jpg", w: 1000, h: 1000 },
+        { code: "M18", title: "Seletti Egg Lighting",                         specs: [],                         price: 30,  img: "img/maghaaze/m18.jpg", w: 1000, h: 500 },
+        { code: "M19", title: "Seletti Ceramic Lighting",                     specs: [],                         price: 40,  img: "img/maghaaze/m19.jpg", w: 814,  h: 1000 },
+        { code: "M20", title: "Seletti Vibrant Lamp Wire",                    specs: ["۵ متری", "قیمت هر عدد"],  price: 7.5, img: "img/maghaaze/m20.jpg", w: 791,  h: 1000 },
+        { code: "M21", title: "Crystal Candle Holder",                        specs: ["قیمت هر عدد"],            price: 30,  img: "img/maghaaze/m21.jpg", w: 1000, h: 500 },
+        { code: "M22", title: "Seletti Ceiling Lighting",                     specs: [],                         price: 40,  img: "img/maghaaze/m22.jpg", w: 616,  h: 462 },
+        { code: "M23", title: "Seletti Table Lamp",                           specs: [],                         price: 40,  img: "img/maghaaze/m23.jpg", w: 334,  h: 552 }
+      ]
     }
   ],
 
