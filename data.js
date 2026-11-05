@@ -16,25 +16,6 @@ window.CATALOG = {
 
   sections: [
     {
-      id: "rugs",
-      nav: "فرش",
-      title: "فرش",
-      brand: "مجموعه‌ی ذوالفقاری ۱۳۵۰",
-      note: "گبه و سره",
-      logo: "img/brand/zolfaghari.png",
-      layout: "wide",
-      items: [
-        { code: "R1", title: "گبه شیراز چله پشم",            specs: ["قدمت ۳۵ سال", "۱۰۶ × ۱۳۹"], price: 118, img: "img/rugs/r01.jpg", w: 640, h: 427 },
-        { code: "R2", title: "گبه شیراز ترنج خطی",           specs: ["قدمت ۵۰ سال", "۱۰۰ × ۱۹۰"], price: 150, img: "img/rugs/r02.jpg", w: 640, h: 427 },
-        { code: "R3", title: "گبه قشقایی لاکی",              specs: ["نوبافت", "۱۷۴ × ۲۱۲"],      price: 162, img: "img/rugs/r03.jpg", w: 640, h: 427 },
-        { code: "R4", title: "گبه شیراز ۲ ترنج",             specs: ["قدمت ۷۰ سال", "۱۱۰ × ۱۷۰"], price: 250, img: "img/rugs/r04.jpg", w: 640, h: 427 },
-        { code: "R5", title: "گبه شیراز نقش محرمات رنگی",    specs: ["قدمت ۴۰ سال", "۱۶۰ × ۱۰۰"], price: 137, img: "img/rugs/r05.jpg", w: 640, h: 427 },
-        { code: "R6", title: "گبه شیراز خشتی ریز",           specs: ["قدمت ۷۰ سال", "۱۰۲ × ۱۴۶"], price: 240, img: "img/rugs/r06.jpg", w: 640, h: 427 },
-        { code: "R7", title: "گبه نوبافت قشقایی طرح شیر سنگی", specs: ["نوبافت", "۱۵۰ × ۱۰۰"],    price: 80,  img: "img/rugs/r07.jpg", w: 640, h: 427 },
-        { code: "R8", title: "سره کامو نقش محرمات",          specs: ["قدمت ۸۰ سال", "۱۲۰ × ۱۱۰"], price: 250, img: "img/rugs/r08.jpg", w: 640, h: 427 }
-      ]
-    },
-    {
       id: "art",
       nav: "آثار هنری",
       title: "آثار هنری",
@@ -79,6 +60,25 @@ window.CATALOG = {
         { code: "A34", group: "کالکشن زمستان سرگردان", title: "پریوش گنجی",       specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 18, img: "img/art/a34.jpg", w: 465, h: 640 },
         { code: "A35", group: "کالکشن زمستان سرگردان", title: "بهناز قاسمی",      specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 9,  img: "img/art/a35.jpg", w: 560, h: 427 },
         { code: "A36", group: "کالکشن زمستان سرگردان", title: "ناهید بهبودیان",   specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 9,  img: "img/art/a36.jpg", w: 640, h: 480 }
+      ]
+    },
+    {
+      id: "rugs",
+      nav: "فرش",
+      title: "فرش",
+      brand: "مجموعه‌ی ذوالفقاری ۱۳۵۰",
+      note: "گبه و سره",
+      logo: "img/brand/zolfaghari.png",
+      layout: "wide",
+      items: [
+        { code: "R1", title: "گبه شیراز چله پشم",            specs: ["قدمت ۳۵ سال", "۱۰۶ × ۱۳۹"], price: 118, img: "img/rugs/r01.jpg", w: 640, h: 427 },
+        { code: "R2", title: "گبه شیراز ترنج خطی",           specs: ["قدمت ۵۰ سال", "۱۰۰ × ۱۹۰"], price: 150, img: "img/rugs/r02.jpg", w: 640, h: 427 },
+        { code: "R3", title: "گبه قشقایی لاکی",              specs: ["نوبافت", "۱۷۴ × ۲۱۲"],      price: 162, img: "img/rugs/r03.jpg", w: 640, h: 427 },
+        { code: "R4", title: "گبه شیراز ۲ ترنج",             specs: ["قدمت ۷۰ سال", "۱۱۰ × ۱۷۰"], price: 250, img: "img/rugs/r04.jpg", w: 640, h: 427 },
+        { code: "R5", title: "گبه شیراز نقش محرمات رنگی",    specs: ["قدمت ۴۰ سال", "۱۶۰ × ۱۰۰"], price: 137, img: "img/rugs/r05.jpg", w: 640, h: 427 },
+        { code: "R6", title: "گبه شیراز خشتی ریز",           specs: ["قدمت ۷۰ سال", "۱۰۲ × ۱۴۶"], price: 240, img: "img/rugs/r06.jpg", w: 640, h: 427 },
+        { code: "R7", title: "گبه نوبافت قشقایی طرح شیر سنگی", specs: ["نوبافت", "۱۵۰ × ۱۰۰"],    price: 80,  img: "img/rugs/r07.jpg", w: 640, h: 427 },
+        { code: "R8", title: "سره کامو نقش محرمات",          specs: ["قدمت ۸۰ سال", "۱۲۰ × ۱۱۰"], price: 250, img: "img/rugs/r08.jpg", w: 640, h: 427 }
       ]
     },
     {
