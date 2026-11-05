@@ -56,7 +56,7 @@ window.CATALOG = {
         { code: "A25", group: "کالکشن زمستان سرگردان", title: "فریدون آو",        specs: ["۲۷ × ۲۰ سانتی‌متر"], price: 30, img: "img/art/a25.jpg", w: 640, h: 443 },
         { code: "A26", group: "کالکشن زمستان سرگردان", title: "بهزاد حاتم",       specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 15, img: "img/art/a26.jpg", w: 462, h: 640 },
         { code: "A27", group: "کالکشن زمستان سرگردان", title: "آیدین آغداشلو",    specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 70, img: "img/art/a27.jpg", w: 441, h: 640 },
-        { code: "A28", group: "کالکشن زمستان سرگردان", title: "پارسا پورابراهیم", specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 7,  img: "img/art/a28.jpg", w: 476, h: 635 },
+        { code: "A28", group: "کالکشن زمستان سرگردان", title: "پارسا پورابراهیم", specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 7,  img: "img/art/a28b.jpg", w: 767, h: 1000 },
         { code: "A29", group: "کالکشن زمستان سرگردان", title: "مرتضی پورحسینی",   specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 10, img: "img/art/a29.jpg", w: 452, h: 640 },
         { code: "A30", group: "کالکشن زمستان سرگردان", title: "محسن احمدوند",     specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 9,  img: "img/art/a30.jpg", w: 422, h: 573 },
         { code: "A31", group: "کالکشن زمستان سرگردان", title: "شایا شهرستانی",    specs: ["۲۰ × ۲۷ سانتی‌متر"], price: 9,  img: "img/art/a31.jpg", w: 480, h: 640 },
