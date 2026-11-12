@@ -163,7 +163,7 @@ window.CATALOG = {
     {
       id: "cooh",
       nav: "COOH",
-      title: "کوه",
+      title: "کووه",
       brand: "COOH",
       note: "آبجکت‌های چوب راش و فلز",
       logo: "img/brand/cooh.png",
