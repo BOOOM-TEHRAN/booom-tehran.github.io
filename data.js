@@ -120,6 +120,7 @@ window.CATALOG = {
         { code: "D18", title: "STRIPED SEAT",             specs: ["۱۸۰ × ۴۵ · ارتفاع ۵۰", "فلز آبکاری‌شده"],                          price: 120, img: "img/added/d18.jpg", w: 1000, h: 750 },
         { code: "D19", title: "ADDED PLAY PING",          specs: ["۱۸۶ × ۹۰", "استیل ضد زنگ"],                                        price: 195, img: "img/added/d19.jpg", w: 1000, h: 667 },
         { code: "D23", title: "BOOK HOLDER",              specs: ["۲۵ × ۲۵ · ارتفاع ۲۲", "استیل"],                                    price: 6,   img: "img/added/d23.jpg", w: 560, h: 560 },
+        { code: "D24", title: "LIOR COMB",                specs: ["استیل ضد زنگ"],                                                   price: 4.2, img: "img/added/d24.jpg", w: 750, h: 1000 },
         { code: "D20", group: "WASSILY CHAIR FAMILY", title: "ARMCHAIR",    specs: ["رنگ‌ها: مشکی و نارنجی"], price: 85,  img: "img/added/d20.jpg", w: 1000, h: 667 },
         { code: "D21", group: "WASSILY CHAIR FAMILY", title: "TABLE CHAIR", specs: ["رنگ‌ها: مشکی و نارنجی"], price: 80,  img: "img/added/d21.jpg", w: 914,  h: 1000 },
         { code: "D22", group: "WASSILY CHAIR FAMILY", title: "THE WASSILY", specs: ["رنگ‌ها: مشکی و نارنجی"], price: 110, img: "img/added/d22.jpg", w: 667,  h: 1000 }
@@ -159,6 +160,31 @@ window.CATALOG = {
         { code: "M24", title: "آرش نظری", sub: "بدون عنوان", specs: ["۱۰۰ × ۱۷۰ سانتی‌متر", "چاپ دیجیتال روی استیل ضد زنگ", "سال تولید ۲۰۱۱"], price: null, priceText: ["۶٬۰۰۰", "دلار"], img: "img/maghaaze/m24.jpg", w: 1000, h: 588 },
         { code: "M25", title: "Devialet Phantom I 108 dB Gold", specs: ["Devialet", "Contemporary"], price: null, priceText: ["۲٬۰۰۰", "دلار"], img: "img/maghaaze/m25.jpg", w: 979, h: 800 }
       ]
+    },
+    {
+      id: "cooh",
+      nav: "COOH",
+      title: "COOH",
+      brand: "COOH",
+      note: "آبجکت‌های چوب راش و فلز",
+      logo: "img/brand/cooh.png",
+      layout: "grid sq",
+      items: [
+        { code: "C1",  title: "DONUT",                         specs: ["۱۸ × ۶ سانتی‌متر", "چوب راش"],                  price: 7.8,  img: "img/cooh/c01.jpg", w: 750, h: 1000 },
+        { code: "C2",  title: "DONUT", sub: "آبی",             specs: ["۱۸ × ۶ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 9.8,  img: "img/cooh/c02.jpg", w: 752, h: 1000 },
+        { code: "C3",  title: "DONUT", sub: "نارنجی",          specs: ["۱۸ × ۶ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 9.8,  img: "img/cooh/c03.jpg", w: 751, h: 1000 },
+        { code: "C4",  title: "DONUT", sub: "کرم",             specs: ["۱۸ × ۶ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 9.8,  img: "img/cooh/c04.jpg", w: 750, h: 1000 },
+        { code: "C5",  title: "DONUT",                         specs: ["۱۸ × ۶ سانتی‌متر", "آلومینیوم سالید"],          price: 39,   img: "img/cooh/c05.jpg", w: 752, h: 1000 },
+        { code: "C6",  title: "1/8 BOOKEND",                   specs: ["۷ × ۷ سانتی‌متر", "آلومینیوم سالید"],           price: 16,   img: "img/cooh/c06.jpg", w: 750, h: 1000 },
+        { code: "C7",  title: "1/8 BOOKEND", sub: "نارنجی",    specs: ["۷ × ۷ سانتی‌متر", "چوب راش و رنگ پوششی"],       price: 4.9,  img: "img/cooh/c10.jpg", w: 750, h: 1000 },
+        { code: "C8",  title: "1/4 BOOKEND",                   specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش"],                  price: 4.9,  img: "img/cooh/c07.jpg", w: 750, h: 1000 },
+        { code: "C9",  title: "1/4 BOOKEND", sub: "قرمز",      specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 6.9,  img: "img/cooh/c08.jpg", w: 750, h: 1000 },
+        { code: "C10", title: "1/4 BOOKEND", sub: "سفید",      specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 6.9,  img: "img/cooh/c09.jpg", w: 750, h: 1000 },
+        { code: "C11", title: "LOLLIPOP KEYCHAINS", sub: "رنگی", specs: [],                                            price: 0.69, img: "img/cooh/c11.jpg", w: 750, h: 1000 },
+        { code: "C12", title: "LOLLIPOP KEYCHAINS", sub: "کروم", specs: [],                                            price: 0.82, img: "img/cooh/c11.jpg", w: 750, h: 1000 },
+        { code: "C13", title: "SEED-2 Aluminum",               specs: ["طول ۷ سانتی‌متر", "آلومینیوم"],                 price: 4.8,  img: "img/cooh/c12.jpg", w: 787, h: 1000 },
+        { code: "C14", title: "UFO",                           specs: ["استیل ضد زنگ"],                                 price: 3.8,  img: "img/cooh/c13.jpg", w: 800, h: 1000 }
+      ]
     }
   ],
 
@@ -166,6 +192,7 @@ window.CATALOG = {
   participants: [
     ["ADDED", "کالکشن جدید آبجکت‌های استیل"],
     ["MAGHAAZE", "آبجکت‌های Seletti"],
+    ["COOH", "آبجکت‌های چوب راش و فلز"],
     ["Haya Studio", "آثار هنری"],
     ["Alireza Azizi", "آثار چاپی"],
     ["Zolfaghari 1350", "فرش"],
