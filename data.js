@@ -47,7 +47,7 @@ window.CATALOG = {
         { code: "A20", title: "آیدین آغداشلو",   specs: ["۵۶ × ۷۶ سانتی‌متر"],   price: 900, img: "img/art/a20.jpg", w: 476, h: 640 },
         { code: "A21", title: "هبال تاژاندره",   specs: ["۱۶۰ × ۱۹۰ سانتی‌متر"], price: 200, img: "img/art/a21.jpg", w: 512, h: 640 },
         { code: "A22", title: "یاسمن عطایی",     specs: ["۱۸۰ × ۱۲۰ سانتی‌متر"], price: 140, img: "img/art/a22.jpg", w: 640, h: 461 },
-        { code: "A23", title: "میلاد شفائی",     specs: ["۱۰۰ × ۷۰ سانتی‌متر"],  price: 20,  img: "img/art/a23.jpg", w: 471, h: 640 },
+        { code: "A23", title: "میلاد شفائی",     specs: ["۱۰۰ × ۷۰ سانتی‌متر"],  price: 20,  img: "img/art/a23.jpg", w: 471, h: 640, sold: true },
         { code: "F1", title: "فرامرز (هشوار)", specs: ["A4", "سال تولید ۱۴۰۴"],                   price: 20,  img: "img/art/f1.jpg", w: 769, h: 1000 },
         { code: "F2", title: "فرامرز (هشوار)", specs: ["A4", "سال تولید ۱۴۰۴"],                   price: 20,  img: "img/art/f2.jpg", w: 761, h: 1000 },
         { code: "F3", title: "فرامرز (هشوار)", specs: ["۴۰ × ۳۰ سانتی‌متر", "سال تولید ۱۴۰۴"],   price: 32,  img: "img/art/f3.jpg", w: 784, h: 1000 },
