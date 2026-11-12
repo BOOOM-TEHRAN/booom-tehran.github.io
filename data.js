@@ -119,6 +119,7 @@ window.CATALOG = {
         { code: "D17", title: "ADDED PLAY TIC TAC TOE",   specs: [],                                                                 price: 45,  img: "img/added/d17.jpg", w: 750,  h: 1000 },
         { code: "D18", title: "STRIPED SEAT",             specs: ["۱۸۰ × ۴۵ · ارتفاع ۵۰", "فلز آبکاری‌شده"],                          price: 120, img: "img/added/d18.jpg", w: 1000, h: 750 },
         { code: "D19", title: "ADDED PLAY PING",          specs: ["۱۸۶ × ۹۰", "استیل ضد زنگ"],                                        price: 195, img: "img/added/d19.jpg", w: 1000, h: 667 },
+        { code: "D23", title: "BOOK HOLDER",              specs: ["۲۵ × ۲۵ · ارتفاع ۲۲", "استیل"],                                    price: 6,   img: "img/added/d23.jpg", w: 560, h: 560 },
         { code: "D20", group: "WASSILY CHAIR FAMILY", title: "ARMCHAIR",    specs: ["رنگ‌ها: مشکی و نارنجی"], price: 85,  img: "img/added/d20.jpg", w: 1000, h: 667 },
         { code: "D21", group: "WASSILY CHAIR FAMILY", title: "TABLE CHAIR", specs: ["رنگ‌ها: مشکی و نارنجی"], price: 80,  img: "img/added/d21.jpg", w: 914,  h: 1000 },
         { code: "D22", group: "WASSILY CHAIR FAMILY", title: "THE WASSILY", specs: ["رنگ‌ها: مشکی و نارنجی"], price: 110, img: "img/added/d22.jpg", w: 667,  h: 1000 }
