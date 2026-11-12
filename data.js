@@ -179,8 +179,9 @@ window.CATALOG = {
         { code: "C8",  title: "1/4 BOOKEND",                   specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش"],                  price: 4.9,  img: "img/cooh/c07.jpg", w: 750, h: 1000 },
         { code: "C9",  title: "1/4 BOOKEND", sub: "قرمز",      specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 6.9,  img: "img/cooh/c08.jpg", w: 750, h: 1000 },
         { code: "C10", title: "1/4 BOOKEND", sub: "سفید",      specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 6.9,  img: "img/cooh/c09.jpg", w: 750, h: 1000 },
+        { code: "C15", title: "1/4 BOOKEND", sub: "آبی",       specs: ["۱۴ × ۷ سانتی‌متر", "چوب راش و رنگ پوششی"],      price: 6.9,  img: "img/cooh/c14.jpg", w: 750, h: 1000 },
         { code: "C11", title: "LOLLIPOP KEYCHAINS", sub: "رنگی", specs: [],                                            price: 0.69, img: "img/cooh/c11.jpg", w: 750, h: 1000 },
-        { code: "C12", title: "LOLLIPOP KEYCHAINS", sub: "کروم", specs: [],                                            price: 0.82, img: "img/cooh/c11.jpg", w: 750, h: 1000 },
+        { code: "C12", title: "LOLLIPOP KEYCHAINS", sub: "کروم", specs: [],                                            price: 0.82, img: "img/cooh/c15.jpg", w: 750, h: 1000 },
         { code: "C13", title: "SEED-2 Aluminum",               specs: ["طول ۷ سانتی‌متر", "آلومینیوم"],                 price: 4.8,  img: "img/cooh/c12.jpg", w: 787, h: 1000 },
         { code: "C14", title: "UFO",                           specs: ["استیل ضد زنگ"],                                 price: 3.8,  img: "img/cooh/c13.jpg", w: 800, h: 1000 }
       ]
