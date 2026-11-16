@@ -100,6 +100,8 @@
   // each brand's accent colour travels as the CSS variable --ac
   var acc = function (s) { return s.accent ? ' style="--ac:' + esc(s.accent) + '"' : ""; };
   var dims = function (s) { return s.logoW ? ' width="' + s.logoW + '" height="' + s.logoH + '"' : ""; };
+  // squarish logos need more height than wordmarks to stay legible
+  var tall = function (s) { return s.logoW && s.logoW / s.logoH < 2.2 ? " tall" : ""; };
 
   $("tabs").innerHTML = C.sections.map(function (s) {
     return '<li><a href="#' + s.id + '"' + acc(s) + '><i class="dot" aria-hidden="true"></i>' + esc(s.nav) + "</a></li>";
@@ -108,7 +110,7 @@
   $("quick").innerHTML = C.sections.map(function (s) {
     var n = s.items.length;
     var mark = s.logo
-      ? '<img class="mk" src="' + esc(s.logo) + '"' + dims(s) + ' alt="" aria-hidden="true">'
+      ? '<img class="mk' + tall(s) + '" src="' + esc(s.logo) + '"' + dims(s) + ' alt="" aria-hidden="true">'
       : s.motif === "paint" ? '<i class="mk frame" aria-hidden="true"></i>' : "";
     return '<li><a href="#' + s.id + '"' + acc(s) + ' class="m-' + esc(s.motif || "none") + (n ? "" : " soon-t") + '">' +
       "<b>" + esc(s.nav) + "</b>" +
@@ -159,7 +161,7 @@
     var n = s.items.length;
     var head =
       '<div class="sec-head">' +
-        (s.logo ? '<img class="logo" src="' + esc(s.logo) + '"' + dims(s) + ' alt="' + esc(s.brand) + '" loading="lazy">' : "") +
+        (s.logo ? '<img class="logo' + tall(s) + '" src="' + esc(s.logo) + '"' + dims(s) + ' alt="' + esc(s.brand) + '" loading="lazy">' : "") +
         "<h2" + ltr(s.title) + ">" + esc(s.title) + "</h2>" +
         '<p class="brand">' + rich(s.brand) + (s.note ? " · " + rich(s.note) : "") + "</p>" +
         (n ? '<p class="meta">' + fa(n) + " " + esc(s.unit || "قطعه") + "</p>" : "") +
@@ -356,6 +358,7 @@
   }
   window.addEventListener("popstate", function (e) {
     var st = e.state || {};
+    if (!st.search) closeDialog($("search"));
     if (!st.zoom) closeDialog($("viewer"));
     var code = st.item || hashCode();
     if (code) showDetail(code); else hideDetail();
@@ -501,10 +504,112 @@
     zst.addEventListener("pointercancel", end);
   })();
 
+  // ── search (code, artist, title, brand, group, material…) ──
+  // fold Arabic/Persian letter variants, digits, half-spaces and case so «علي», «علی» and «A۱۴» all match
+  var FA_D = "۰۱۲۳۴۵۶۷۸۹", AR_D = "٠١٢٣٤٥٦٧٨٩";
+  function norm(s) {
+    return String(s == null ? "" : s).toLowerCase()
+      .replace(/[۰-۹]/g, function (d) { return FA_D.indexOf(d); })
+      .replace(/[٠-٩]/g, function (d) { return AR_D.indexOf(d); })
+      .replace(/[يى]/g, "ی").replace(/ك/g, "ک").replace(/[ةۀ]/g, "ه").replace(/[أإآ]/g, "ا").replace(/ؤ/g, "و")
+      .replace(/[\u064B-\u0652\u0640]/g, "").replace(/[\u200c\u200d\u200e\u200f]/g, "")
+      .replace(/[·،,×()«»"'\/\-_.]+/g, " ").replace(/\s+/g, " ").trim();
+  }
+  var INDEX = [];
+  C.sections.forEach(function (s) {
+    s.items.forEach(function (it) {
+      var parts = [it.code, it.title, it.sub, it.name, it.group, it.type, it.medium, it.material, it.designer, it.signature, it.year, s.nav, s.title, s.brand]
+        .concat(it.specs || []);
+      INDEX.push({ it: it, code: norm(it.code), title: norm(it.title), text: norm(parts.filter(has).join(" ")), flat: norm(parts.filter(has).join(" ")).replace(/ /g, "") });
+    });
+  });
+  function find(q) {
+    var nq = norm(q); if (!nq) return [];
+    var words = nq.split(" "), flatQ = nq.replace(/ /g, ""), out = [];
+    INDEX.forEach(function (e) {
+      var ok = words.every(function (w) { return e.text.indexOf(w) > -1; }) || e.flat.indexOf(flatQ) > -1;
+      if (!ok) return;
+      var score = e.code === flatQ ? 0 : e.code.indexOf(flatQ) === 0 ? 1 : e.title.indexOf(nq) === 0 ? 2 : e.title.indexOf(nq) > -1 ? 3 : 4;
+      out.push({ e: e, s: score });
+    });
+    out.sort(function (a, b) { return a.s - b.s || (a.e.it.sold ? 1 : 0) - (b.e.it.sold ? 1 : 0); });
+    return out.map(function (o) { return o.e.it; });
+  }
+  var sDlg = $("search"), sIn = $("sInput"), S_MAX = 60;
+  function renderSearch() {
+    var q = sIn.value, res = find(q);
+    if (!norm(q)) {
+      $("sMeta").textContent = "در " + fa(INDEX.length) + " کالا و اثر جست‌وجو کنید، یا یک بخش را ببینید:";
+      $("sList").innerHTML = '<div class="s-chips">' + C.sections.map(function (s) {
+        return '<button type="button" data-goto="' + esc(s.id) + '"' + acc(s) + ">" + esc(s.nav) + "</button>";
+      }).join("") + "</div>";
+      return;
+    }
+    $("sMeta").textContent = res.length ? fa(res.length) + " نتیجه" + (res.length > S_MAX ? " · " + fa(S_MAX) + " مورد اول" : "") : "چیزی پیدا نشد. نام هنرمند، نام کالا یا کد روی برچسب را امتحان کنید.";
+    $("sList").innerHTML = res.slice(0, S_MAX).map(function (it) {
+      var sub = subOf(it), pr = it.sold ? "فروخته شد" : typeof it.price === "number" ? money(it.price).join(" ") : it.priceText ? it.priceText.join(" ") : "استعلام";
+      return '<button type="button" class="s-row' + (it.sold ? " sold" : "") + '" data-open="' + esc(it.code) + '"' + acc(it.sec) + ">" +
+        '<img src="' + esc(it.img) + '" alt="" width="60" height="60" loading="lazy">' +
+        '<span><span class="c">' + esc(it.code) + '</span><span class="tt"' + ltr(it.title) + ">" + esc(it.title) + "</span>" +
+        '<span class="pp">' + (sub ? esc(sub) + " · " : "") + esc(it.sec.nav) + "</span></span>" +
+        '<span class="pr">' + esc(pr) + "</span></button>";
+    }).join("");
+    $("sList").scrollTop = 0;
+  }
+  function openSearch() {
+    if (sDlg.open) return;
+    history.pushState({ search: 1 }, "", location.href);
+    renderSearch();
+    openDialog(sDlg);
+    sIn.focus(); sIn.select();
+  }
+  function closeSearch() {
+    if (history.state && history.state.search) history.back(); else closeDialog(sDlg);
+  }
+  sIn.addEventListener("input", renderSearch);
+  $("sForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var res = find(sIn.value);
+    if (res.length === 1) pick(res[0].code); else sIn.blur();
+  });
+  // a result replaces the search entry in history, so Back from the product returns to the page
+  function pick(code) {
+    closeDialog(sDlg);
+    if (history.state && history.state.search) { history.replaceState({ item: code }, "", "#item-" + code); showDetail(code); }
+    else openItem(code);
+  }
+  sDlg.addEventListener("cancel", function (e) { e.preventDefault(); closeSearch(); });
+  sDlg.addEventListener("click", function (e) {
+    if (e.target === sDlg) return closeSearch();
+    var r = e.target.closest ? e.target.closest("[data-open],[data-goto]") : null;
+    if (!r) return;
+    e.preventDefault(); e.stopPropagation();
+    if (r.hasAttribute("data-open")) return pick(r.getAttribute("data-open"));
+    var id = r.getAttribute("data-goto");
+    closeDialog(sDlg);
+    if (history.state && history.state.search) history.replaceState(null, "", "#" + id);
+    var sec = $(id); if (sec) sec.scrollIntoView();
+  });
+  $("sClose").addEventListener("click", closeSearch);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && !document.querySelector("dialog[open]") && !/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) { e.preventDefault(); openSearch(); }
+  });
+
+  // ── back to top ─────────────────────────────────
+  var topBtn = $("toTop"), ticking = false;
+  function onScroll() {
+    ticking = false;
+    topBtn.hidden = window.scrollY < Math.max(600, window.innerHeight * 0.9);
+  }
+  window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  topBtn.addEventListener("click", function () { window.scrollTo({ top: 0 }); });
+  onScroll();
+
   // ── clicks ──────────────────────────────────────
   document.addEventListener("click", function (e) {
-    var t = e.target.closest ? e.target.closest("[data-add],[data-rm],[data-open],[data-close]") : null;
+    var t = e.target.closest ? e.target.closest("[data-add],[data-rm],[data-open],[data-close],[data-search]") : null;
     if (!t) return;
+    if (t.hasAttribute("data-search")) return openSearch();
     if (t.hasAttribute("data-add")) {
       var c = t.getAttribute("data-add"), i = list.indexOf(c);
       if (i > -1) { list.splice(i, 1); toast("از لیست برداشته شد"); }

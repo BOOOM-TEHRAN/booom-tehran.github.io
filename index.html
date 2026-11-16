@@ -52,7 +52,10 @@
   .sp-t { margin: 0; font-size: 13.5px; line-height: 1.75; color: var(--ink); }
   .sp-t b { display: block; font-weight: 800; color: var(--orange); }
   .quick { margin-top: 12px; }
-  .quick h2 { margin: 0 0 8px; font-size: 15px; font-weight: 800; color: var(--navy); }
+  .q-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+  .quick h2 { margin: 0; font-size: 15px; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .s-open { appearance: none; flex: 1; max-width: 240px; display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1.5px solid var(--navy); border-radius: 999px; background: var(--paper); color: var(--mute); font: inherit; font-size: 13.5px; cursor: pointer; }
+  .s-open svg { color: var(--navy); flex: none; }
   .quick ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .quick li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   @media (min-width: 700px) { .quick ul { grid-template-columns: repeat(5, 1fr); } .quick li:last-child:nth-child(odd) { grid-column: auto; } }
@@ -75,6 +78,8 @@
   .quick a em { font-style: normal; font-size: 13px; line-height: 1.6; color: var(--ink); }
   .quick a span { font-size: 12.5px; font-weight: 800; color: var(--ac); display: inline-flex; align-items: center; gap: 4px; }
   .quick .mk { position: absolute; z-index: -1; top: 12px; left: 12px; height: 22px; width: auto; max-width: 42%; opacity: .9; }
+  .quick .mk.tall { height: 40px; top: 10px; max-width: 30%; object-fit: contain; object-position: left top; }
+  .sec-head .logo.tall { height: 72px; }
   .quick .frame { width: 40px; height: 30px; border: 2px solid var(--ac); opacity: .35; box-shadow: inset 0 0 0 5px var(--paper), inset 0 0 0 6.5px var(--ac); }
   .m-paint::before { background: radial-gradient(ellipse at 15% 85%, var(--ac), transparent 60%); }
   .m-rug::before { background: repeating-linear-gradient(45deg, var(--ac) 0 1px, transparent 1px 11px), repeating-linear-gradient(-45deg, var(--ac) 0 1px, transparent 1px 11px); -webkit-mask: linear-gradient(to right, #000, transparent 75%); mask: linear-gradient(to right, #000, transparent 75%); }
@@ -98,7 +103,9 @@
 
   /* ── Sticky nav ─────────────────────── */
   .tabs { position: sticky; top: 0; z-index: 20; background: rgba(247, 243, 232, .94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  .tabs ul { list-style: none; margin: 0 auto; max-width: 980px; padding: 10px var(--gutter); display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+  .tabs-in { max-width: 980px; margin: 0 auto; display: flex; align-items: center; padding-inline-start: var(--gutter); }
+  .s-tab { appearance: none; flex: none; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: var(--navy); color: var(--cream); cursor: pointer; }
+  .tabs ul { list-style: none; flex: 1; min-width: 0; margin: 0; padding: 10px 10px 10px var(--gutter); display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
   .tabs ul::-webkit-scrollbar { display: none; }
   .tabs a { --ac: var(--navy); display: flex; align-items: center; gap: 8px; min-height: 44px; white-space: nowrap; text-decoration: none; color: var(--navy); font-weight: 700; font-size: 14px; padding: 0 16px; border: 1.5px solid var(--navy); border-radius: 999px; line-height: 1.5; }
   .tabs .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--ac); flex: none; }
@@ -187,6 +194,33 @@
   .listbar .n { background: var(--orange); color: #fff; border-radius: 999px; min-width: 24px; height: 24px; display: inline-grid; place-items: center; font-size: 13px; padding: 0 6px; }
   .listbar .t { font-size: 13.5px; opacity: .9; }
 
+  /* ── Back to top ─────────────────────── */
+  .totop { appearance: none; position: fixed; z-index: 25; left: max(14px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: 48px; height: 48px; display: grid; place-items: center; border: 1.5px solid var(--navy); border-radius: 50%; background: var(--cream); color: var(--navy); box-shadow: 0 6px 18px rgba(14, 36, 66, .18); cursor: pointer; transition: opacity .2s, transform .2s; }
+  .totop[hidden] { display: grid; opacity: 0; transform: translateY(10px); pointer-events: none; visibility: hidden; }
+  body.has-list .totop { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+
+  /* ── Search ──────────────────────────── */
+  #search { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; background: var(--cream); overflow: hidden; }
+  #search[open] { display: flex; flex-direction: column; }
+  @media (min-width: 760px) { #search { width: min(640px, 94vw); height: min(720px, 88vh); margin: auto; border-radius: 22px; box-shadow: 0 30px 80px rgba(10, 18, 30, .35); } }
+  .s-bar { flex: none; display: flex; align-items: center; gap: 8px; padding: max(10px, env(safe-area-inset-top, 0px)) var(--gutter) 10px; border-bottom: 1px solid var(--line); }
+  .s-field { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 14px; border: 1.5px solid var(--navy); border-radius: 999px; background: var(--paper); color: var(--navy); }
+  .s-field:focus-within { outline: 2px solid var(--orange); outline-offset: 2px; }
+  .s-field svg { flex: none; }
+  .s-field input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; color: var(--ink); }
+  .s-field input::placeholder { color: var(--mute); font-size: 13.5px; }
+  .s-meta { flex: none; margin: 0; padding: 10px var(--gutter) 4px; font-size: 13px; color: var(--mute); }
+  .s-list { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding: 0 var(--gutter) calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .s-row { appearance: none; width: 100%; display: grid; grid-template-columns: 60px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: inherit; font: inherit; text-align: start; cursor: pointer; }
+  .s-row img { width: 60px; height: 60px; object-fit: cover; background: #fff; display: block; }
+  .s-row .c { display: block; font-size: 11.5px; font-weight: 800; color: var(--ac); direction: ltr; text-align: right; }
+  .s-row .tt { display: block; font-weight: 800; font-size: 15px; line-height: 1.5; color: var(--navy); }
+  .s-row .pp { display: block; font-size: 12.5px; color: var(--mute); }
+  .s-row .pr { font-size: 13px; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .s-row.sold .pr { color: var(--sold); }
+  .s-chips { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 8px; }
+  .s-chips button { appearance: none; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--ac); border-radius: 999px; background: var(--paper); color: var(--ac); font: inherit; font-weight: 700; font-size: 14px; cursor: pointer; }
+
   dialog { border: 0; padding: 0; color: var(--ink); }
   dialog::backdrop { background: rgba(10, 18, 30, .55); }
   #sheet { width: 100%; max-width: 640px; max-height: 92dvh; margin: auto auto 0; border-radius: 20px 20px 0 0; background: var(--cream); }
@@ -273,7 +307,7 @@
   .toast { position: fixed; z-index: 40; inset: auto auto calc(96px + env(safe-area-inset-bottom, 0px)) 50%; margin: 0; border: 0; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 8px 16px; border-radius: 999px; font-size: 13.5px; opacity: 0; transition: opacity .2s; pointer-events: none; }
   .toast.on { opacity: 1; }
 
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .toast, .z-stage img.anim { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .toast, .totop, .z-stage img.anim { transition: none; } }
 </style>
 </head>
 <body>
@@ -293,7 +327,10 @@
       <p class="sp-t">چند برند مستقل زیر یک سقف؛<b>رویداد فروش در بوم</b></p>
     </div>
     <nav class="quick" aria-labelledby="quickTitle">
-      <h2 id="quickTitle">فهرست قیمت‌ها</h2>
+      <div class="q-head">
+        <h2 id="quickTitle">فهرست قیمت‌ها</h2>
+        <button class="s-open" type="button" data-search aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13zM20 20l-4.8-4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>جست‌وجوی نام یا کد</span></button>
+      </div>
       <ul id="quick"></ul>
     </nav>
     <a class="cam" href="ar.html">
@@ -304,7 +341,7 @@
   <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
 </header>
 
-<nav class="tabs" aria-label="بخش‌ها"><ul id="tabs"></ul></nav>
+<nav class="tabs" aria-label="بخش‌ها"><div class="tabs-in"><button class="s-tab" type="button" data-search aria-haspopup="dialog" aria-label="جست‌وجو"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13zM20 20l-4.8-4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button><ul id="tabs"></ul></div></nav>
 
 <main class="wrap" id="sections">
   <noscript><p style="padding:24px 0">برای دیدن فهرست قیمت‌ها، جاوااسکریپت مرورگر را روشن کنید.</p></noscript>
@@ -339,6 +376,17 @@
   <span class="l">لیست من <span class="n" id="listN">۰</span></span>
   <span class="t" id="listT"></span>
 </button>
+
+<button class="totop" id="toTop" type="button" hidden aria-label="بازگشت به بالای صفحه"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 19V5.5M5.5 12 12 5.5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+
+<dialog id="search" aria-label="جست‌وجو">
+  <form class="s-bar" role="search" id="sForm">
+    <label class="s-field"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13zM20 20l-4.8-4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><input id="sInput" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="نام هنرمند، نام کالا یا کد (مثلاً A14)" aria-label="جست‌وجو در همه‌ی کالاها"></label>
+    <button class="x" type="button" id="sClose">بستن</button>
+  </form>
+  <p class="s-meta" id="sMeta" aria-live="polite"></p>
+  <div class="s-list" id="sList"></div>
+</dialog>
 
 <dialog id="sheet" aria-labelledby="sheetTitle">
   <div class="sheet-in">
