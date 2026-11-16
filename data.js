@@ -11,6 +11,8 @@ window.CATALOG = {
   sections: [
     {
       id: "art",
+      kind: "art",
+      accent: "#b8322a", motif: "paint", tagline: "آثار هنرمندان ایرانی",
       nav: "آثار هنری",
       title: "آثار هنری",
       brand: "هایا استودیو",
@@ -67,6 +69,7 @@ window.CATALOG = {
     },
     {
       id: "rugs",
+      accent: "#8c4a22", motif: "rug", tagline: "گبه و سفره‌ی دست‌باف",
       nav: "فرش",
       title: "فرش",
       brand: "مجموعه‌ی ذوالفقاری ۱۳۵۰",
@@ -86,6 +89,7 @@ window.CATALOG = {
     },
     {
       id: "added",
+      accent: "#3f5a70", motif: "steel", tagline: "آبجکت‌های استیل",
       nav: "ادد",
       title: "ادد",
       brand: "ادد · تیم طراحی بوم",
@@ -120,6 +124,7 @@ window.CATALOG = {
     },
     {
       id: "maghaaze",
+      accent: "#d6336c", motif: "dots", tagline: "پاپ‌آرت Seletti",
       nav: "مغازه",
       title: "مغازه",
       brand: "مغازه · MAGHAAZE",
@@ -155,6 +160,7 @@ window.CATALOG = {
     },
     {
       id: "cooh",
+      accent: "#9a6a2e", motif: "wood", tagline: "چوب راش و فلز",
       nav: "کووه",
       title: "کووه",
       brand: "کووه · COOH",

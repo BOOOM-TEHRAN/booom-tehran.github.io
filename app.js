@@ -42,15 +42,23 @@
   }).join("");
 
   // ── nav + sections ──────────────────────────────
+  // each brand's accent colour travels as the CSS variable --ac
+  var acc = function (s) { return s.accent ? ' style="--ac:' + esc(s.accent) + '"' : ""; };
+  var ARROW = '<svg class="ic" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
   $("tabs").innerHTML = C.sections.map(function (s) {
-    return '<li><a href="#' + s.id + '">' + esc(s.nav) + "</a></li>";
+    return '<li><a href="#' + s.id + '"' + acc(s) + '><i class="dot" aria-hidden="true"></i>' + esc(s.nav) + "</a></li>";
   }).join("");
 
   $("quick").innerHTML = C.sections.map(function (s) {
     var n = s.items.length;
-    return '<li><a href="#' + s.id + '"' + (n ? "" : ' class="soon-t"') + ">" +
+    var mark = s.logo
+      ? '<img class="mk" src="' + esc(s.logo) + '" alt="" aria-hidden="true">'
+      : s.motif === "paint" ? '<i class="mk frame" aria-hidden="true"></i>' : "";
+    return '<li><a href="#' + s.id + '"' + acc(s) + ' class="m-' + esc(s.motif || "none") + (n ? "" : " soon-t") + '">' +
       "<b>" + esc(s.nav) + "</b>" +
-      "<span>" + (n ? fa(n) + " " + esc(s.unit || "قطعه") : "به‌زودی") + "</span></a></li>";
+      (s.tagline ? "<em>" + rich(s.tagline) + "</em>" : "") +
+      "<span>" + (n ? fa(n) + " " + esc(s.unit || "قطعه") + " " + ARROW : "به‌زودی") + "</span>" + mark + "</a></li>";
   }).join("");
 
   function card(it) {
@@ -106,7 +114,7 @@
     var body = n
       ? '<div class="items ' + (s.layout || "grid") + '">' + cards(s.items, s.unit || "قطعه") + "</div>"
       : '<div class="soon"><strong>به‌زودی</strong><p>فهرست قیمت این بخش به‌زودی اینجا قرار می‌گیرد.</p></div>';
-    return '<section class="sec" id="' + s.id + '" aria-label="' + esc(s.nav) + '">' + head + body + "</section>";
+    return '<section class="sec" id="' + s.id + '"' + acc(s) + ' aria-label="' + esc(s.nav) + '">' + head + body + "</section>";
   }).join(""));
 
   // ── active tab ──────────────────────────────────
