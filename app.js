@@ -18,6 +18,17 @@
       : [fa(Math.round(m * 1e6)), "تومان"];
   };
   var isLatin = function (s) { return /^[\x00-\x7FÀ-ſ\s]+$/.test(s); };
+  var LTR = ' dir="ltr" lang="en"';
+  // escape, and wrap Latin runs inside Persian text so they read left-to-right («مغازه · MAGHAAZE»)
+  var rich = function (s) {
+    var re = /[A-Za-zÀ-ſ][A-Za-zÀ-ſ0-9.'&\/ -]*[A-Za-zÀ-ſ0-9]|[A-Za-zÀ-ſ]/g, out = "", last = 0, m;
+    s = String(s == null ? "" : s);
+    while ((m = re.exec(s))) {
+      out += esc(s.slice(last, m.index)) + "<span" + LTR + ">" + esc(m[0]) + "</span>";
+      last = m.index + m[0].length;
+    }
+    return out + esc(s.slice(last));
+  };
 
   // ── index items by code ─────────────────────────
   var byCode = {};
@@ -27,7 +38,7 @@
 
   // ── participants ────────────────────────────────
   $("who").innerHTML = C.participants.map(function (p) {
-    return "<li><b>" + esc(p[0]) + "</b><span>" + esc(p[1]) + "</span></li>";
+    return '<li><span class="nm"><b>' + esc(p[0]) + "</b><i" + LTR + ">" + esc(p[1]) + "</i></span><span>" + rich(p[2]) + "</span></li>";
   }).join("");
 
   // ── nav + sections ──────────────────────────────
@@ -89,7 +100,7 @@
       '<div class="sec-head">' +
         (s.logo ? '<img class="logo" src="' + esc(s.logo) + '" alt="' + esc(s.brand) + '">' : "") +
         "<h2" + (isLatin(s.title) ? ' dir="ltr" lang="en"' : "") + ">" + esc(s.title) + "</h2>" +
-        '<p class="brand">' + esc(s.brand) + (s.note ? " · " + esc(s.note) : "") + "</p>" +
+        '<p class="brand">' + rich(s.brand) + (s.note ? " · " + rich(s.note) : "") + "</p>" +
         (n ? '<p class="meta">' + fa(n) + " " + esc(s.unit || "قطعه") + "</p>" : "") +
       "</div>";
     var body = n

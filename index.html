@@ -162,8 +162,11 @@
   .about h2 { margin: 34px 0 10px; font-size: 18px; font-weight: 800; color: var(--navy); }
   .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
   .who li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  .who b { direction: ltr; font-weight: 800; color: var(--navy); }
-  .who span { color: var(--mute); }
+  .who .nm { display: flex; flex-direction: column; line-height: 1.5; }
+  .who b { font-weight: 800; color: var(--navy); }
+  .who i { font-style: normal; font-size: 12.5px; color: var(--mute); text-align: right; letter-spacing: .02em; }
+  .who li > span:last-child { color: var(--mute); text-align: left; }
+  [dir="ltr"][lang="en"] { unicode-bidi: isolate; }
   .btn { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1.5px solid var(--navy); background: var(--navy); color: var(--cream); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer; line-height: 1.5; }
   .btn.ghost { background: transparent; color: var(--navy); }
   footer { border-top: 1px solid var(--line); padding: 28px 0 calc(32px + env(safe-area-inset-bottom, 0px)); color: var(--mute); font-size: 13px; }

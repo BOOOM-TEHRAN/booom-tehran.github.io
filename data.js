@@ -88,7 +88,7 @@ window.CATALOG = {
       id: "added",
       nav: "ادد",
       title: "ادد",
-      brand: "ADDED · تیم طراحی بوم",
+      brand: "ادد · تیم طراحی بوم",
       note: "کالکشن جدید آبجکت‌های استیل",
       logo: "img/brand/added.png",
       layout: "grid sq",
@@ -121,8 +121,8 @@ window.CATALOG = {
     {
       id: "maghaaze",
       nav: "مغازه",
-      title: "MAGHAAZE",
-      brand: "مغازه",
+      title: "مغازه",
+      brand: "مغازه · MAGHAAZE",
       note: "آبجکت‌های Seletti با زبان بصری پاپ‌آرت",
       layout: "grid sq",
       items: [
@@ -155,9 +155,9 @@ window.CATALOG = {
     },
     {
       id: "cooh",
-      nav: "COOH",
+      nav: "کووه",
       title: "کووه",
-      brand: "COOH",
+      brand: "کووه · COOH",
       note: "آبجکت‌های چوب راش و فلز",
       logo: "img/brand/cooh.png",
       layout: "grid sq",
@@ -181,16 +181,16 @@ window.CATALOG = {
     }
   ],
 
-  // برندهای حاضر در رویداد (بخش «درباره‌ی بوم»)
+  // برندهای بوم (بخش «برندهای بوم» پایین صفحه): [نام فارسی، نام لاتین، توضیح]
   participants: [
-    ["ADDED", "کالکشن جدید آبجکت‌های استیل"],
-    ["MAGHAAZE", "آبجکت‌های Seletti"],
-    ["COOH", "آبجکت‌های چوب راش و فلز"],
-    ["Haya Studio", "آثار هنری"],
-    ["Alireza Azizi", "آثار چاپی"],
-    ["Zolfaghari 1350", "فرش"],
-    ["84", "پوشاک"],
-    ["TheMoak", "عینک"],
-    ["Studio Variété", "پذیرایی"]
+    ["ادد", "ADDED", "کالکشن جدید آبجکت‌های استیل"],
+    ["مغازه", "MAGHAAZE", "آبجکت‌های Seletti"],
+    ["کووه", "COOH", "آبجکت‌های چوب راش و فلز"],
+    ["هایا استودیو", "Haya Studio", "آثار هنری"],
+    ["علیرضا عزیزی", "Alireza Azizi", "آثار چاپی"],
+    ["ذوالفقاری ۱۳۵۰", "Zolfaghari 1350", "فرش"],
+    ["هشتاد و چهار", "84", "پوشاک"],          // املای فارسی منتظر تأیید
+    ["د موک", "TheMoak", "عینک"],              // املای فارسی منتظر تأیید
+    ["استودیو واریته", "Studio Variété", "پذیرایی"] // املای فارسی منتظر تأیید
   ]
 };
