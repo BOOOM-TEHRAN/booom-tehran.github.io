@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>BOOOM · ساخت فایل شناسایی آثار</title>
+<style>
+  @font-face { font-family: "Vazirmatn"; src: url("fonts/Vazirmatn-var.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+  :root { --cream: #f7f3e8; --paper: #fffdf8; --navy: #0e2442; --mute: #5f6672; --line: #e4ddca; --ac: #b8322a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--cream); color: #1b2430; font: 15px/1.8 "Vazirmatn", Tahoma, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { margin: 0; font-size: 24px; color: var(--navy); }
+  p { margin: 8px 0; }
+  .mute { color: var(--mute); font-size: 13.5px; }
+  .btn { appearance: none; border: 1.5px solid var(--navy); background: var(--navy); color: var(--cream); border-radius: 999px; min-height: 44px; padding: 0 20px; font: inherit; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; }
+  .btn.ghost { background: transparent; color: var(--navy); }
+  .btn[aria-disabled="true"], .btn:disabled { opacity: .4; pointer-events: none; }
+  .acts { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+  progress { width: 100%; height: 14px; accent-color: var(--ac); }
+  #log { white-space: pre-wrap; font-size: 13px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px; min-height: 60px; direction: rtl; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 6px; margin-top: 12px; }
+  .grid figure { margin: 0; text-align: center; font-size: 11px; color: var(--mute); }
+  .grid canvas { width: 100%; height: 64px; object-fit: contain; background: #fff; border: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<main>
+  <h1>ساخت فایل شناسایی آثار (<span lang="en" dir="ltr">targets.mind</span>)</h1>
+  <p>هر بار عکس آثار هنری عوض شد یا اثری اضافه یا حذف شد، این صفحه را باز کنید، دکمه‌ی «ساختن» را بزنید و سه فایل خروجی را در پوشه‌ی <b lang="en" dir="ltr">ar/</b> مخزن جایگزین کنید.</p>
+  <p class="mute">عکس هر اثر از <span lang="en" dir="ltr">data.js</span> خوانده می‌شود، ضلع بلندش به ۳۴۰ پیکسل کوچک می‌شود و ترتیب آثار در <span lang="en" dir="ltr">targets.json</span> ذخیره می‌شود. ساختن چند دقیقه طول می‌کشد؛ صفحه را نبندید.</p>
+  <div class="acts">
+    <button class="btn" type="button" id="go">ساختن</button>
+    <a class="btn ghost" id="dlMind" aria-disabled="true" download="targets.mind">targets.mind</a>
+    <a class="btn ghost" id="dlGz" aria-disabled="true" download="targets.mind.gz">targets.mind.gz</a>
+    <a class="btn ghost" id="dlJson" aria-disabled="true" download="targets.json">targets.json</a>
+  </div>
+  <progress id="bar" max="100" value="0"></progress>
+  <div id="log" role="status" aria-live="polite">آماده.</div>
+  <div class="grid" id="grid"></div>
+</main>
+<script>document.write('<script src="data.js?v=' + Date.now() + '"><\/script>');</script>
+<script type="module">
+  import { Compiler } from "./ar/vendor/mindar-image.prod.js";
+  const LONG = 340;
+  const $ = (id) => document.getElementById(id);
+  const log = (s) => { $("log").textContent += "\n" + s; };
+  const art = window.CATALOG.sections.filter((s) => s.kind === "art").flatMap((s) => s.items);
+
+  function load(src) {
+    return new Promise((ok, fail) => {
+      const im = new Image();
+      im.onload = () => ok(im);
+      im.onerror = () => fail(new Error("load " + src));
+      im.src = src;
+    });
+  }
+  function shrink(im) {
+    const k = LONG / Math.max(im.naturalWidth, im.naturalHeight);
+    const c = document.createElement("canvas");
+    c.width = Math.round(im.naturalWidth * k);
+    c.height = Math.round(im.naturalHeight * k);
+    const g = c.getContext("2d");
+    g.imageSmoothingQuality = "high";
+    g.drawImage(im, 0, 0, c.width, c.height);
+    return c;
+  }
+  async function gzip(bytes) {
+    const s = new Blob([bytes]).stream().pipeThrough(new CompressionStream("gzip"));
+    return new Uint8Array(await new Response(s).arrayBuffer());
+  }
+  const link = (id, blob) => { const a = $(id); a.href = URL.createObjectURL(blob); a.removeAttribute("aria-disabled"); };
+
+  // result for automation: window.__targets = { mind, gz, json }
+  async function build() {
+    $("go").disabled = true;
+    $("log").textContent = art.length + " اثر.";
+    const t0 = performance.now();
+    const canvases = [];
+    for (const it of art) {
+      const c = shrink(await load(it.img));
+      canvases.push(c);
+      const f = document.createElement("figure");
+      f.append(c, Object.assign(document.createElement("figcaption"), { textContent: it.code }));
+      $("grid").append(f);
+    }
+    log("عکس‌ها آماده شد؛ در حال ساختن…");
+    const compiler = new Compiler();
+    await compiler.compileImageTargets(canvases, (p) => { $("bar").value = p; });
+    const mind = new Uint8Array(compiler.exportData());
+    const gz = await gzip(mind);
+    const json = JSON.stringify({
+      built: new Date().toISOString(),
+      size: LONG,
+      bytes: { mind: mind.length, gz: gz.length },
+      targets: art.map((it, i) => ({ code: it.code, w: canvases[i].width, h: canvases[i].height }))
+    }, null, 1);
+    window.__targets = { mind, gz, json };
+    link("dlMind", new Blob([mind], { type: "application/octet-stream" }));
+    link("dlGz", new Blob([gz], { type: "application/gzip" }));
+    link("dlJson", new Blob([json], { type: "application/json" }));
+    $("bar").value = 100;
+    log("تمام شد در " + Math.round((performance.now() - t0) / 1000) + " ثانیه · targets.mind: " + Math.round(mind.length / 1024) + " KB · gz: " + Math.round(gz.length / 1024) + " KB");
+    $("go").disabled = false;
+  }
+  $("go").addEventListener("click", () => build().catch((e) => { log("خطا: " + e.message); $("go").disabled = false; }));
+</script>
+</body>
+</html>
