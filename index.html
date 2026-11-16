@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>STEEL POP · BOOOM</title>
-<meta name="description" content="STEEL POP در بوم · ۲۱ و ۲۲ آبان ۱۴۰۵ · فهرست قیمت فرش‌ها، آثار هنری و آبجکت‌ها">
+<title>BOOOM · فهرست قیمت</title>
+<meta name="description" content="بوم · فهرست قیمت آثار هنری، فرش‌ها و آبجکت‌های برندهای حاضر در بوم">
 <meta name="theme-color" content="#f7f3e8">
 <link rel="preload" href="fonts/Vazirmatn-var.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -84,10 +84,6 @@
   .lede { margin: 26px 0 0; font-size: 15.5px; line-height: 2; color: var(--ink); }
   .lede p { margin: 0; }
   .lede b { font-weight: 800; color: var(--navy); }
-  .when { margin: 18px 0 0; display: grid; gap: 2px; }
-  .when .d { font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1.4; }
-  .when .h { font-size: 15px; color: var(--mute); }
-  .when .a { font-size: 14px; color: var(--mute); }
   .rings { position: absolute; left: 0; right: 0; bottom: calc(var(--rs) * -.64); height: var(--rs); pointer-events: none; }
   .rings i {
     position: absolute; top: 0; width: var(--rs); height: var(--rs); border-radius: 50%;
@@ -168,12 +164,8 @@
   .who li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
   .who b { direction: ltr; font-weight: 800; color: var(--navy); }
   .who span { color: var(--mute); }
-  address { font-style: normal; }
-  .acts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
   .btn { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 1.5px solid var(--navy); background: var(--navy); color: var(--cream); border-radius: 999px; padding: 8px 18px; font-weight: 700; font-size: 14px; text-decoration: none; cursor: pointer; line-height: 1.5; }
   .btn.ghost { background: transparent; color: var(--navy); }
-
-  .btn[hidden] { display: none; }
   footer { border-top: 1px solid var(--line); padding: 28px 0 calc(32px + env(safe-area-inset-bottom, 0px)); color: var(--mute); font-size: 13px; }
   .foot-in { max-width: 980px; margin: 0 auto; padding-inline: var(--gutter); text-align: right; }
   footer img { height: 24px; width: auto; display: block; margin: 0 0 6px auto; }
@@ -241,11 +233,6 @@
       <img src="img/brand/steelpop.png" alt="STEEL POP — Happening at BOOOM" width="1024" height="280">
     </div>
     <div class="event">
-      <div class="when">
-        <span class="d" id="evDates"></span>
-        <span class="h" id="evHours"></span>
-        <span class="a" id="evAddr"></span>
-      </div>
       <nav class="quick" aria-labelledby="quickTitle">
         <h2 id="quickTitle">فهرست قیمت‌ها</h2>
         <ul id="quick"></ul>
@@ -265,16 +252,8 @@
   <h2 id="aboutTitle" style="margin-top:0">درباره‌ی STEEL POP</h2>
   <p class="txt" style="margin-top:0">پاپ‌آرت با رنگ‌های جسورانه و فرم‌های غیرمتعارف، نگاهی تازه به اشیای روزمره دارد. STEEL POP از تلاقی متریال استیل با این زبان بصری شکل گرفته؛ جایی که رنگ، فرم و متریال کنار هم قرار می‌گیرند تا تعریفی متفاوت از اشیای روزمره ارائه دهند.</p>
 
-  <h2>در این رویداد</h2>
+  <h2>برندهای بوم</h2>
   <ul class="who" id="who"></ul>
-
-  <h2>نشانی</h2>
-  <address id="addr"></address>
-  <p class="specs" id="addrWhen" style="margin-top:2px"></p>
-  <div class="acts">
-    <button class="btn ghost" type="button" id="copyAddr">کپی نشانی</button>
-    <a class="btn" id="mapLink" target="_blank" rel="noopener" hidden>مسیریابی</a>
-  </div>
 
   <h2>بوم در اینستاگرام</h2>
   <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" style="margin-top:0">
@@ -288,7 +267,7 @@
   <div class="foot-in">
     <img src="img/brand/booom.png" alt="BOOOM" width="387" height="72">
     <p class="foot-tag" lang="en">DIFFERENT DIRECTIONS · ONE IDENTITY</p>
-    <p><bdi lang="en">STEEL POP</bdi> · <span id="footDates"></span></p>
+    <p><bdi lang="en">STEEL POP</bdi> · بوم</p>
     <p><a href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" lang="en" dir="ltr">@booom.tehran</a></p>
   </div>
 </footer>

@@ -25,16 +25,7 @@
     sec.items.forEach(function (it) { it.sec = sec; byCode[it.code] = it; });
   });
 
-  // ── event info ──────────────────────────────────
-  var ev = C.event;
-  $("evDates").textContent = ev.dates;
-  $("evHours").textContent = ev.hours;
-  $("evAddr").textContent = ev.address;
-  $("footDates").textContent = ev.dates;
-  $("addr").textContent = ev.address;
-  $("addrWhen").textContent = ev.dates + " · " + ev.hours;
-  if (ev.mapUrl) { $("mapLink").href = ev.mapUrl; $("mapLink").hidden = false; }
-
+  // ── participants ────────────────────────────────
   $("who").innerHTML = C.participants.map(function (p) {
     return "<li><b>" + esc(p[0]) + "</b><span>" + esc(p[1]) + "</span></li>";
   }).join("");
@@ -239,20 +230,6 @@
   $("clearList").addEventListener("click", function () {
     if (!window.confirm("همه‌ی کالاها از لیست برداشته شوند؟")) return;
     list = []; save(); refresh(); closeDialog($("sheet"));
-  });
-
-  $("copyAddr").addEventListener("click", function () {
-    var text = "BOOOM — " + ev.address;
-    var done = function () { toast("نشانی کپی شد"); };
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
-    } else fallback();
-    function fallback() {
-      var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
-      ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select();
-      try { document.execCommand("copy"); done(); } catch (err) {}
-      document.body.removeChild(ta);
-    }
   });
 
   refresh();
