@@ -101,7 +101,7 @@ window.CATALOG = {
       title: "فرش",
       brand: "مجموعه‌ی ذوالفقاری ۱۳۵۰",
       note: "گبه و سره",
-      logo: "img/brand/zolfaghari.png",
+      logo: "img/brand/zolfaghari.png", logoW: 351, logoH: 200,
       layout: "wide",
       items: [
         { code: "R1", title: "گبه شیراز چله پشم",            age: "۳۵ سال", size: "۱۰۶ × ۱۳۹", price: 118, img: "img/rugs/r01.jpg", w: 640, h: 427 },
@@ -121,7 +121,7 @@ window.CATALOG = {
       title: "ادد",
       brand: "ادد · تیم طراحی بوم",
       note: "کالکشن جدید آبجکت‌های استیل",
-      logo: "img/brand/added.png",
+      logo: "img/brand/added.png", logoW: 1087, logoH: 221,
       layout: "grid sq",
       items: [
         { code: "D1",  title: "NEW SOFA",                 specs: ["۱۴۶ × ۷۵ · ارتفاع ۵۰"],                                           price: 210, img: "img/added/d01.jpg", w: 1000, h: 667 },
@@ -192,7 +192,7 @@ window.CATALOG = {
       title: "کووه",
       brand: "کووه · COOH",
       note: "آبجکت‌های چوب راش و فلز",
-      logo: "img/brand/cooh.png",
+      logo: "img/brand/cooh.png", logoW: 943, logoH: 221,
       layout: "grid sq",
       items: [
         { code: "C1",  title: "DONUT",                         specs: ["۱۸ × ۶ سانتی‌متر", "چوب راش"],                  price: 7.8,  img: "img/cooh/c01.jpg", w: 750, h: 1000 },

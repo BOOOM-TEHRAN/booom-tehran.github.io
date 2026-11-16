@@ -99,6 +99,7 @@
   // ── nav + sections ──────────────────────────────
   // each brand's accent colour travels as the CSS variable --ac
   var acc = function (s) { return s.accent ? ' style="--ac:' + esc(s.accent) + '"' : ""; };
+  var dims = function (s) { return s.logoW ? ' width="' + s.logoW + '" height="' + s.logoH + '"' : ""; };
 
   $("tabs").innerHTML = C.sections.map(function (s) {
     return '<li><a href="#' + s.id + '"' + acc(s) + '><i class="dot" aria-hidden="true"></i>' + esc(s.nav) + "</a></li>";
@@ -107,7 +108,7 @@
   $("quick").innerHTML = C.sections.map(function (s) {
     var n = s.items.length;
     var mark = s.logo
-      ? '<img class="mk" src="' + esc(s.logo) + '" alt="" aria-hidden="true">'
+      ? '<img class="mk" src="' + esc(s.logo) + '"' + dims(s) + ' alt="" aria-hidden="true">'
       : s.motif === "paint" ? '<i class="mk frame" aria-hidden="true"></i>' : "";
     return '<li><a href="#' + s.id + '"' + acc(s) + ' class="m-' + esc(s.motif || "none") + (n ? "" : " soon-t") + '">' +
       "<b>" + esc(s.nav) + "</b>" +
@@ -158,7 +159,7 @@
     var n = s.items.length;
     var head =
       '<div class="sec-head">' +
-        (s.logo ? '<img class="logo" src="' + esc(s.logo) + '" alt="' + esc(s.brand) + '">' : "") +
+        (s.logo ? '<img class="logo" src="' + esc(s.logo) + '"' + dims(s) + ' alt="' + esc(s.brand) + '" loading="lazy">' : "") +
         "<h2" + ltr(s.title) + ">" + esc(s.title) + "</h2>" +
         '<p class="brand">' + rich(s.brand) + (s.note ? " · " + rich(s.note) : "") + "</p>" +
         (n ? '<p class="meta">' + fa(n) + " " + esc(s.unit || "قطعه") + "</p>" : "") +
