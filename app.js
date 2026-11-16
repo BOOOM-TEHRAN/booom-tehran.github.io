@@ -541,6 +541,10 @@
     showDetail(start);
   } else if (location.hash) {
     var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-    if (target) target.scrollIntoView();
+    if (target) {
+      target.scrollIntoView({ behavior: "instant" });
+      // the web font swaps in after this and shifts the layout; land on the section again once it has
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { target.scrollIntoView({ behavior: "instant" }); });
+    }
   }
 })();
