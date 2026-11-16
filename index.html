@@ -37,32 +37,37 @@
   :focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
   .wrap { max-width: 980px; margin: 0 auto; padding-inline: var(--gutter); }
 
-  /* ── Hero ───────────────────────────── */
-  .hero { --rs: min(54vw, 300px); position: relative; overflow: hidden; padding-top: max(36px, env(safe-area-inset-top, 0px)); padding-bottom: calc(var(--rs) * .36 + 16px); }
+  /* ── Hero (compact: everything down to the camera button fits a 390×844 screen) ── */
+  .hero { --rs: min(34vw, 190px); position: relative; overflow: hidden; padding-top: max(18px, env(safe-area-inset-top, 0px)); padding-bottom: calc(var(--rs) * .3 + 8px); }
   .hero .wrap { position: relative; z-index: 1; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .booom-xl { margin: 0; line-height: 0; }
-  .booom-xl img { width: min(78vw, 420px); height: auto; display: block; }
-  .brandblock .tag { margin: 14px 0 0; direction: ltr; text-align: right; font-size: clamp(11px, 3.2vw, 14px); letter-spacing: .16em; color: var(--navy); font-weight: 600; }
-  .intro { margin: 18px 0 0; font-size: 16.5px; line-height: 1.9; max-width: 34em; }
-  .ig { margin-top: 20px; display: inline-flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; text-decoration: none; background: var(--navy); color: var(--cream); border-radius: 999px; padding: 10px 20px 10px 22px; font-weight: 700; font-size: 15px; line-height: 1.4; }
+  .booom-xl img { width: min(40vw, 230px); height: auto; display: block; }
+  .tag { margin: 8px 0 0; text-align: right; font-size: clamp(10px, 2.9vw, 13px); letter-spacing: .16em; color: var(--navy); font-weight: 600; line-height: 1.5; }
+  .ig { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; white-space: nowrap; text-decoration: none; background: var(--navy); color: var(--cream); border-radius: 999px; padding: 0 16px; font-weight: 800; font-size: 14.5px; line-height: 1.4; }
   .ig svg { flex: none; }
-  .ig-h { direction: ltr; font-weight: 800; color: #f3b27a; }
-  .hero .wrap { display: grid; grid-template-columns: 1fr; grid-template-areas: "brand" "sp" "event"; }
-  .brandblock { grid-area: brand; }
-  .sp { grid-area: sp; margin-top: 32px; padding-top: 22px; border-top: 2px solid var(--navy); }
-  .sp img { display: block; width: 100%; max-width: 460px; height: auto; margin-top: 12px; }
-  .event { grid-area: event; margin-top: 6px; }
-  @media (min-width: 820px) {
-    .hero .wrap { grid-template-columns: 1fr 1fr; grid-template-areas: "brand sp" "event event"; column-gap: 40px; align-items: center; }
-    .sp { margin-top: 0; padding-top: 0; border-top: 0; justify-self: end; width: 100%; max-width: 512px; }
-    .sp img { max-width: 512px; margin-top: 10px; }
-    .event { margin-top: 32px; padding-top: 22px; border-top: 2px solid var(--navy); }
-  }
-  .quick { margin-top: 24px; }
-  .quick h2 { margin: 0 0 10px; font-size: 15px; font-weight: 800; color: var(--navy); }
+  .ig-h { color: #f3b27a; }
+  .sp { margin-top: 10px; padding-top: 12px; border-top: 2px solid var(--navy); display: flex; align-items: center; gap: 12px; }
+  .sp img { display: block; width: min(42vw, 240px); height: auto; flex: none; }
+  .sp-t { margin: 0; font-size: 13.5px; line-height: 1.75; color: var(--ink); }
+  .sp-t b { display: block; font-weight: 800; color: var(--orange); }
+  .quick { margin-top: 12px; }
+  .quick h2 { margin: 0 0 8px; font-size: 15px; font-weight: 800; color: var(--navy); }
   .quick ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .quick li:last-child:nth-child(odd) { grid-column: 1 / -1; }
   @media (min-width: 700px) { .quick ul { grid-template-columns: repeat(5, 1fr); } .quick li:last-child:nth-child(odd) { grid-column: auto; } }
+  .cam { margin-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; padding: 10px 20px; border-radius: 16px; background: var(--navy); color: var(--cream); text-decoration: none; box-shadow: 0 8px 22px rgba(14, 36, 66, .18); }
+  .cam-t { display: flex; flex-direction: column; line-height: 1.55; }
+  .cam b { font-size: 16px; font-weight: 800; }
+  .cam-t span { font-size: 13px; opacity: .85; }
+  .cam svg { color: #f3b27a; }
+  @media (min-width: 820px) {
+    .hero { padding-top: 32px; }
+    .booom-xl img { width: 300px; }
+    .sp img { width: 300px; }
+    .sp-t { font-size: 15px; }
+    .quick .mk { height: 16px; max-width: 34%; }
+  }
   /* brand cards: accent border, 6px edge bar on the start side, a motif texture behind */
   .quick li > a { --ac: var(--navy); position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 10px 18px 10px 12px; min-height: 92px; height: 100%; text-decoration: none; background: var(--paper); border: 1.5px solid var(--ac); border-inline-start-width: 6px; border-radius: 14px; color: var(--ink); }
   .quick li > a::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .14; }
@@ -70,7 +75,7 @@
   .quick a em { font-style: normal; font-size: 13px; line-height: 1.6; color: var(--ink); }
   .quick a span { font-size: 12.5px; font-weight: 800; color: var(--ac); display: inline-flex; align-items: center; gap: 4px; }
   .quick .mk { position: absolute; z-index: -1; top: 12px; left: 12px; height: 22px; width: auto; max-width: 42%; opacity: .9; }
-  .quick .frame { top: auto; bottom: 12px; width: 50px; height: 38px; border: 2px solid var(--ac); opacity: .35; box-shadow: inset 0 0 0 5px var(--paper), inset 0 0 0 6.5px var(--ac); }
+  .quick .frame { width: 40px; height: 30px; border: 2px solid var(--ac); opacity: .35; box-shadow: inset 0 0 0 5px var(--paper), inset 0 0 0 6.5px var(--ac); }
   .m-paint::before { background: radial-gradient(ellipse at 15% 85%, var(--ac), transparent 60%); }
   .m-rug::before { background: repeating-linear-gradient(45deg, var(--ac) 0 1px, transparent 1px 11px), repeating-linear-gradient(-45deg, var(--ac) 0 1px, transparent 1px 11px); -webkit-mask: linear-gradient(to right, #000, transparent 75%); mask: linear-gradient(to right, #000, transparent 75%); }
   .m-steel::before { background: repeating-linear-gradient(0deg, var(--ac) 0 1px, transparent 1px 4px); -webkit-mask: linear-gradient(to right, #000, transparent 85%); mask: linear-gradient(to right, #000, transparent 85%); }
@@ -78,20 +83,6 @@
   .m-wood::before { background: repeating-radial-gradient(ellipse 180% 90% at 0% 130%, transparent 0 8px, var(--ac) 8px 9px); -webkit-mask: linear-gradient(to right, #000, transparent 80%); mask: linear-gradient(to right, #000, transparent 80%); }
   .quick a.soon-t { border-style: dashed; border-color: var(--ring); }
   .ic { flex: none; display: inline-block; vertical-align: middle; }
-  .now { margin: 0; font-size: 13.5px; font-weight: 800; color: var(--orange); }
-  .wordmark { margin: 10px 0 0; font-weight: 900; line-height: .9; letter-spacing: -.02em; font-size: clamp(38px, 11.5vw, 80px); color: var(--navy); display: flex; flex-wrap: nowrap; align-items: baseline; gap: 0 .14em; direction: ltr; justify-content: flex-start; }
-  .wordmark .steel { display: inline-block; transform: skewX(-10deg); }
-  .wordmark .pop {
-    color: transparent;
-    -webkit-text-stroke: 3px var(--navy);
-    background: radial-gradient(circle, var(--navy) 1.15px, transparent 1.6px) 0 0 / 5px 5px;
-    -webkit-background-clip: text; background-clip: text;
-    filter: drop-shadow(4px 4px 0 var(--navy));
-  }
-  .happening { margin: 10px 0 0; direction: ltr; text-align: left; font-size: clamp(17px, 5.4vw, 26px); font-weight: 400; letter-spacing: .01em; color: var(--navy); line-height: 1.2; }
-  .lede { margin: 26px 0 0; font-size: 15.5px; line-height: 2; color: var(--ink); }
-  .lede p { margin: 0; }
-  .lede b { font-weight: 800; color: var(--navy); }
   .rings { position: absolute; left: 0; right: 0; bottom: calc(var(--rs) * -.64); height: var(--rs); pointer-events: none; }
   .rings i {
     position: absolute; top: 0; width: var(--rs); height: var(--rs); border-radius: 50%;
@@ -167,8 +158,6 @@
 
   /* ── About ──────────────────────────── */
   .about { padding-block: 48px 24px; border-top: 1px solid var(--line); }
-  .about .booom { height: 30px; width: auto; display: block; }
-  .about .tag { margin: 10px 0 0; direction: ltr; text-align: right; font-size: 12px; letter-spacing: .12em; color: var(--navy); font-weight: 600; }
   .about p.txt { margin: 18px 0 0; max-width: 60ch; }
   .about h2 { margin: 34px 0 10px; font-size: 18px; font-weight: 800; color: var(--navy); }
   .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
@@ -232,26 +221,26 @@
 
 <header class="hero">
   <div class="wrap">
-    <div class="brandblock">
+    <div class="top">
       <h1 class="booom-xl"><img src="img/brand/booom.png" alt="BOOOM" width="387" height="72"></h1>
-      <p class="tag" lang="en">DIFFERENT DIRECTIONS · ONE IDENTITY</p>
-      <p class="intro">بوم فضایی است که چند برند مستقل را زیر یک سقف کنار هم آورده؛ جهت‌های متفاوت، با یک هویت مشترک.</p>
-      <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>
-        <span class="ig-t">بوم را دنبال کنید</span>
-        <span class="ig-h" lang="en">@booom.tehran</span>
+      <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" aria-label="اینستاگرام بوم: booom.tehran">
+        <span class="ig-h" lang="en" dir="ltr">@booom.tehran</span>
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>
       </a>
     </div>
+    <p class="tag" lang="en" dir="ltr">DIFFERENT DIRECTIONS · ONE IDENTITY</p>
     <div class="sp">
-      <p class="now">رویداد فروش در بوم</p>
       <img src="img/brand/steelpop.png" alt="STEEL POP — Happening at BOOOM" width="1024" height="280">
+      <p class="sp-t">چند برند مستقل زیر یک سقف؛<b>رویداد فروش در بوم</b></p>
     </div>
-    <div class="event">
-      <nav class="quick" aria-labelledby="quickTitle">
-        <h2 id="quickTitle">فهرست قیمت‌ها</h2>
-        <ul id="quick"></ul>
-      </nav>
-    </div>
+    <nav class="quick" aria-labelledby="quickTitle">
+      <h2 id="quickTitle">فهرست قیمت‌ها</h2>
+      <ul id="quick"></ul>
+    </nav>
+    <a class="cam" href="ar.html">
+      <span class="cam-t"><b>شناسایی اثر با دوربین</b><span>گوشی را روبه‌روی یک اثر هنری بگیرید</span></span>
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.4-2h5.8l1.4 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="12.8" r="3.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+    </a>
   </div>
   <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
 </header>
@@ -267,13 +256,14 @@
   <p class="txt" style="margin-top:0">پاپ‌آرت با رنگ‌های جسورانه و فرم‌های غیرمتعارف، نگاهی تازه به اشیای روزمره دارد. STEEL POP از تلاقی متریال استیل با این زبان بصری شکل گرفته؛ جایی که رنگ، فرم و متریال کنار هم قرار می‌گیرند تا تعریفی متفاوت از اشیای روزمره ارائه دهند.</p>
 
   <h2>برندهای بوم</h2>
+  <p class="txt" style="margin:0 0 12px">بوم فضایی است که چند برند مستقل را زیر یک سقف کنار هم آورده؛ جهت‌های متفاوت، با یک هویت مشترک.</p>
   <ul class="who" id="who"></ul>
 
   <h2>بوم در اینستاگرام</h2>
-  <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener" style="margin-top:0">
-    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>
-    <span class="ig-t">دنبال کنید</span>
-    <span class="ig-h" lang="en">@booom.tehran</span>
+  <a class="ig" href="https://www.instagram.com/booom.tehran/" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg>
+    <span>دنبال کنید</span>
+    <span class="ig-h" lang="en" dir="ltr">@booom.tehran</span>
   </a>
 </section>
 
